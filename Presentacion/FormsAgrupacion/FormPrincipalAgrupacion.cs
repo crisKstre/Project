@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tienda.Forms;
 
 namespace Presentacion.FormsAgrupacion
 {
@@ -43,7 +44,7 @@ namespace Presentacion.FormsAgrupacion
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
-                    previousBtn.BackColor = Color.Salmon;
+                    previousBtn.BackColor = Color.PaleGreen;
                     previousBtn.ForeColor = Color.Black;
                     previousBtn.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
@@ -83,7 +84,7 @@ namespace Presentacion.FormsAgrupacion
 
         private void EventosBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new FormEventos(), sender);
         }
     }
 }
