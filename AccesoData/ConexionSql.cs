@@ -12,7 +12,7 @@ namespace AccesoData
         private readonly String connectionString;
         public ConexionSql()
         {
-            connectionString = "Server=CRIS\\SQLEXPRESS;DataBase= Integracion; integrated security= true; TrustServerCertificate=true;";
+            connectionString = "Server=CRIS\\SQLEXPRESS;DataBase= FeriaDB; integrated security= true; TrustServerCertificate=true;";
         }
         protected SqlConnection GetSqlConnection()
         {

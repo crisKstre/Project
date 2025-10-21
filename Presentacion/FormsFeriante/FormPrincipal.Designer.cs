@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             sidePnl = new Panel();
-            btnCerrar = new Button();
+            PosicionLbl = new Label();
+            NombreLbl = new Label();
+            NombreAgrupacionLbl = new Label();
+            btnCerrarSesion = new Button();
             ventasBtn = new Button();
             invBtn = new Button();
-            adminPnl = new Panel();
+            FeriantePnl = new Panel();
             label3 = new Label();
-            NombreAgrupacionLbl = new Label();
-            NombreLbl = new Label();
-            PosicionLbl = new Label();
             sidePnl.SuspendLayout();
-            adminPnl.SuspendLayout();
+            FeriantePnl.SuspendLayout();
             SuspendLayout();
             // 
             // sidePnl
@@ -48,33 +48,63 @@
             sidePnl.Controls.Add(PosicionLbl);
             sidePnl.Controls.Add(NombreLbl);
             sidePnl.Controls.Add(NombreAgrupacionLbl);
-            sidePnl.Controls.Add(btnCerrar);
+            sidePnl.Controls.Add(btnCerrarSesion);
             sidePnl.Controls.Add(ventasBtn);
             sidePnl.Controls.Add(invBtn);
             sidePnl.Location = new Point(0, 0);
             sidePnl.Margin = new Padding(3, 4, 3, 4);
             sidePnl.Name = "sidePnl";
-            sidePnl.Size = new Size(211, 821);
+            sidePnl.Size = new Size(152, 821);
             sidePnl.TabIndex = 0;
             sidePnl.Paint += panel1_Paint;
             // 
-            // btnCerrar
+            // PosicionLbl
             // 
-            btnCerrar.BackColor = Color.Salmon;
-            btnCerrar.Cursor = Cursors.Hand;
-            btnCerrar.FlatAppearance.BorderSize = 0;
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Font = new Font("Leelawadee", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrar.ForeColor = Color.Black;
-            btnCerrar.Location = new Point(0, 760);
-            btnCerrar.Margin = new Padding(3, 4, 3, 4);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(210, 51);
-            btnCerrar.TabIndex = 23;
-            btnCerrar.Text = "   Cerrar Sesion";
-            btnCerrar.TextAlign = ContentAlignment.MiddleLeft;
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
+            PosicionLbl.AutoSize = true;
+            PosicionLbl.Font = new Font("Leelawadee", 10F);
+            PosicionLbl.Location = new Point(8, 80);
+            PosicionLbl.Name = "PosicionLbl";
+            PosicionLbl.Size = new Size(54, 20);
+            PosicionLbl.TabIndex = 26;
+            PosicionLbl.Text = "label4";
+            // 
+            // NombreLbl
+            // 
+            NombreLbl.AutoSize = true;
+            NombreLbl.Font = new Font("Leelawadee", 10F);
+            NombreLbl.Location = new Point(8, 48);
+            NombreLbl.Name = "NombreLbl";
+            NombreLbl.Size = new Size(54, 20);
+            NombreLbl.TabIndex = 25;
+            NombreLbl.Text = "label2";
+            // 
+            // NombreAgrupacionLbl
+            // 
+            NombreAgrupacionLbl.AutoSize = true;
+            NombreAgrupacionLbl.Font = new Font("Leelawadee", 10F);
+            NombreAgrupacionLbl.Location = new Point(8, 16);
+            NombreAgrupacionLbl.Name = "NombreAgrupacionLbl";
+            NombreAgrupacionLbl.Size = new Size(54, 20);
+            NombreAgrupacionLbl.TabIndex = 24;
+            NombreAgrupacionLbl.Text = "label1";
+            // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = Color.Salmon;
+            btnCerrarSesion.Cursor = Cursors.Hand;
+            btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.Font = new Font("Leelawadee", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrarSesion.ForeColor = Color.Black;
+            btnCerrarSesion.Location = new Point(0, 760);
+            btnCerrarSesion.Margin = new Padding(3, 4, 3, 4);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(210, 51);
+            btnCerrarSesion.TabIndex = 23;
+            btnCerrarSesion.Text = "   Cerrar Sesion";
+            btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            btnCerrarSesion.Click += btnCerrar_Click;
             // 
             // ventasBtn
             // 
@@ -112,15 +142,15 @@
             invBtn.UseVisualStyleBackColor = false;
             invBtn.Click += button1_Click;
             // 
-            // adminPnl
+            // FeriantePnl
             // 
-            adminPnl.BackColor = Color.Snow;
-            adminPnl.Controls.Add(label3);
-            adminPnl.Location = new Point(206, 0);
-            adminPnl.Margin = new Padding(3, 4, 3, 4);
-            adminPnl.Name = "adminPnl";
-            adminPnl.Size = new Size(777, 821);
-            adminPnl.TabIndex = 1;
+            FeriantePnl.BackColor = Color.Snow;
+            FeriantePnl.Controls.Add(label3);
+            FeriantePnl.Location = new Point(152, 0);
+            FeriantePnl.Margin = new Padding(3, 4, 3, 4);
+            FeriantePnl.Name = "FeriantePnl";
+            FeriantePnl.Size = new Size(831, 821);
+            FeriantePnl.TabIndex = 1;
             // 
             // label3
             // 
@@ -128,44 +158,17 @@
             label3.Font = new Font("Leelawadee", 30F, FontStyle.Bold);
             label3.Location = new Point(0, 0);
             label3.Name = "label3";
-            label3.Size = new Size(777, 821);
+            label3.Size = new Size(831, 821);
             label3.TabIndex = 1;
             label3.Text = "Hola Mundo";
             label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // NombreAgrupacionLbl
-            // 
-            NombreAgrupacionLbl.AutoSize = true;
-            NombreAgrupacionLbl.Location = new Point(8, 16);
-            NombreAgrupacionLbl.Name = "NombreAgrupacionLbl";
-            NombreAgrupacionLbl.Size = new Size(50, 20);
-            NombreAgrupacionLbl.TabIndex = 24;
-            NombreAgrupacionLbl.Text = "label1";
-            // 
-            // NombreLbl
-            // 
-            NombreLbl.AutoSize = true;
-            NombreLbl.Location = new Point(8, 48);
-            NombreLbl.Name = "NombreLbl";
-            NombreLbl.Size = new Size(50, 20);
-            NombreLbl.TabIndex = 25;
-            NombreLbl.Text = "label2";
-            // 
-            // PosicionLbl
-            // 
-            PosicionLbl.AutoSize = true;
-            PosicionLbl.Location = new Point(8, 80);
-            PosicionLbl.Name = "PosicionLbl";
-            PosicionLbl.Size = new Size(50, 20);
-            PosicionLbl.TabIndex = 26;
-            PosicionLbl.Text = "label4";
             // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 816);
-            Controls.Add(adminPnl);
+            Controls.Add(FeriantePnl);
             Controls.Add(sidePnl);
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
@@ -177,7 +180,7 @@
             Load += AdminWF_Load;
             sidePnl.ResumeLayout(false);
             sidePnl.PerformLayout();
-            adminPnl.ResumeLayout(false);
+            FeriantePnl.ResumeLayout(false);
             ResumeLayout(false);
 
         }
@@ -185,11 +188,11 @@
         #endregion
 
         private System.Windows.Forms.Panel sidePnl;
-        private System.Windows.Forms.Panel adminPnl;
+        private System.Windows.Forms.Panel FeriantePnl;
         private System.Windows.Forms.Button invBtn;
         private System.Windows.Forms.Button ventasBtn;
         private System.Windows.Forms.Label label3;
-        private Button btnCerrar;
+        private Button btnCerrarSesion;
         private Label PosicionLbl;
         private Label NombreLbl;
         private Label NombreAgrupacionLbl;

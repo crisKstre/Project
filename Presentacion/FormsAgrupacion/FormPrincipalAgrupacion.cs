@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades.Cache;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,23 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tienda;
-using Tienda.Forms;
-using Entidades.Cache;
-using Presentacion.Forms;
 
-namespace Presentacion
+namespace Presentacion.FormsAgrupacion
 {
-    public partial class FormPrincipal : Form
+    public partial class FormPrincipalAgrupacion : Form
     {
+        public FormPrincipalAgrupacion()
+        {
+            InitializeComponent();
+        }
 
         private Button currentButton;
 
-        public FormPrincipal()
-        {
-            InitializeComponent();
-            
-        }
 
         private void ActivateButton(object btnSender)
         {
@@ -45,12 +41,12 @@ namespace Presentacion
         {
             foreach (Control previousBtn in sidePnl.Controls)
             {
-                if(previousBtn.GetType() == typeof(Button))
+                if (previousBtn.GetType() == typeof(Button))
                 {
                     previousBtn.BackColor = Color.Salmon;
                     previousBtn.ForeColor = Color.Black;
                     previousBtn.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                                    
+
                 }
             }
         }
@@ -58,7 +54,7 @@ namespace Presentacion
         private Form currentChildForm;
         private void OpenChildForm(Form childForm, object btnSender)
         {
-            if(currentChildForm != null)
+            if (currentChildForm != null)
             {
                 currentChildForm.Close();
             }
@@ -67,18 +63,13 @@ namespace Presentacion
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.adminPnl.Controls.Add(childForm);
-            this.adminPnl.Tag = childForm;
+            this.AgrupacionPnl.Controls.Add(childForm);
+            this.AgrupacionPnl.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void AdminWF_Load(object sender, EventArgs e)
+        private void FormPrincipalAgrupacion_Load(object sender, EventArgs e)
         {
             CargarInfoUsuario();
         }
@@ -89,28 +80,10 @@ namespace Presentacion
             NombreLbl.Text = UserLoginCache.Nombre;
             PosicionLbl.Text = UserLoginCache.Posicion;
         }
-        
-        private void button1_Click(object sender, EventArgs e)
+
+        private void EventosBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new invPnl(), sender);
+
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-           OpenChildForm(new FormHijo1(), sender);
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        
-
     }
-
-
-
 }
-
-

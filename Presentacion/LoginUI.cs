@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Entidades.Cache;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,32 +71,54 @@ namespace Presentacion
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("Funciona el boton");
+
             if (txtUsuario.Text != " Nombre de Usuario" && txtUsuario.Text != "")
             {
-                if(txtPass.Text !=" Contraseña" &&  txtPass.Text !="")
+                if (txtPass.Text != " Contraseña" && txtPass.Text != "")
                 {
                     ModeloUsuario Usuario = new ModeloUsuario();
                     var loginValido = Usuario.LoginUser(txtUsuario.Text, txtPass.Text);
+
                     if (loginValido == true)
                     {
-                        FormPrincipal menu = new FormPrincipal();
-                        menu.Show();
-                        menu.FormClosed += CerrarSesion;
-                        this.ParentForm.Hide();
+                        if (UserLoginCache.Posicion == TipoUsuario.Agrupacion)
+                        {
+                            FormsAgrupacion.FormPrincipalAgrupacion mainmenu = new FormsAgrupacion.FormPrincipalAgrupacion();
+                            mainmenu.Show();
+                            mainmenu.FormClosed += CerrarSesion;
+                            this.ParentForm.Hide();
+                        }
+                        if (UserLoginCache.Posicion == TipoUsuario.Feriante)
+                        {
+                            FormPrincipal mainmenu = new FormPrincipal();
+                            mainmenu.Show();
+                            mainmenu.FormClosed += CerrarSesion;
+                            this.ParentForm.Hide();
+                        }
+                        else
+                        {
+                            msgError("Tipo de usuario no reconocido.");
+                        }
                     }
                     else
                     {
                         msgError("Nombre de usuario o contraseña incorrecta \n" +
-                            "     Intentalo de nuevo");
+                                 "     Inténtalo de nuevo");
                         txtPass.Clear();
                         txtUsuario.Focus();
                     }
-
-                }else msgError("Debe ingresar contraseña");
+                }
+                else
+                {
+                    msgError("Debe ingresar contraseña");
+                }
             }
-            else msgError("Ingresar Nombre de usuario");
-            
+            else
+            {
+                msgError("Debe ingresar nombre de usuario");
+            }
         }
+
 
         private void msgError(string msg)
         {
