@@ -1,6 +1,6 @@
-﻿using AccesoData;
+﻿using AccesoData.DAO;
 using Dominio.PatronFactory;
-using Entidades;
+using Entidades.Cache;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +16,7 @@ namespace Dominio.Servicios
 
         public int CrearEvento(EventoFactory factory, string nombre, string lugar, DateTime fechaInicio,DateTime fechaFin, string descripcion, int cupos, decimal precio)
         {
-            Evento nuevoEvento = factory.CrearEvento(nombre, lugar, fechaInicio, fechaFin, descripcion);
+            EventoCache nuevoEvento = factory.CrearEvento(nombre, lugar, fechaInicio, fechaFin, descripcion);
             nuevoEvento.Cupos = cupos;
             nuevoEvento.PrecioEntrada = precio;
 

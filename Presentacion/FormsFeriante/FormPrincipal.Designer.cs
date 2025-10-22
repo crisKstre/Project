@@ -37,6 +37,7 @@
             invBtn = new Button();
             FeriantePnl = new Panel();
             label3 = new Label();
+            PerfilLink = new LinkLabel();
             sidePnl.SuspendLayout();
             FeriantePnl.SuspendLayout();
             SuspendLayout();
@@ -45,6 +46,7 @@
             // 
             sidePnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             sidePnl.BackColor = Color.Salmon;
+            sidePnl.Controls.Add(PerfilLink);
             sidePnl.Controls.Add(PosicionLbl);
             sidePnl.Controls.Add(NombreLbl);
             sidePnl.Controls.Add(NombreAgrupacionLbl);
@@ -62,7 +64,7 @@
             // 
             PosicionLbl.AutoSize = true;
             PosicionLbl.Font = new Font("Leelawadee", 10F);
-            PosicionLbl.Location = new Point(8, 80);
+            PosicionLbl.Location = new Point(8, 128);
             PosicionLbl.Name = "PosicionLbl";
             PosicionLbl.Size = new Size(54, 20);
             PosicionLbl.TabIndex = 26;
@@ -72,7 +74,7 @@
             // 
             NombreLbl.AutoSize = true;
             NombreLbl.Font = new Font("Leelawadee", 10F);
-            NombreLbl.Location = new Point(8, 48);
+            NombreLbl.Location = new Point(8, 96);
             NombreLbl.Name = "NombreLbl";
             NombreLbl.Size = new Size(54, 20);
             NombreLbl.TabIndex = 25;
@@ -82,7 +84,7 @@
             // 
             NombreAgrupacionLbl.AutoSize = true;
             NombreAgrupacionLbl.Font = new Font("Leelawadee", 10F);
-            NombreAgrupacionLbl.Location = new Point(8, 16);
+            NombreAgrupacionLbl.Location = new Point(8, 64);
             NombreAgrupacionLbl.Name = "NombreAgrupacionLbl";
             NombreAgrupacionLbl.Size = new Size(54, 20);
             NombreAgrupacionLbl.TabIndex = 24;
@@ -163,6 +165,19 @@
             label3.Text = "Hola Mundo";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // PerfilLink
+            // 
+            PerfilLink.AutoSize = true;
+            PerfilLink.Font = new Font("Segoe UI", 13F);
+            PerfilLink.LinkColor = Color.Teal;
+            PerfilLink.Location = new Point(8, 16);
+            PerfilLink.Name = "PerfilLink";
+            PerfilLink.Size = new Size(61, 30);
+            PerfilLink.TabIndex = 27;
+            PerfilLink.TabStop = true;
+            PerfilLink.Text = "Perfil";
+            PerfilLink.LinkClicked += PerfilLink_LinkClicked;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -196,6 +211,7 @@
         private Label PosicionLbl;
         private Label NombreLbl;
         private Label NombreAgrupacionLbl;
+        private LinkLabel PerfilLink;
     }
 }
 

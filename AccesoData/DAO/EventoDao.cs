@@ -1,4 +1,4 @@
-﻿using Entidades;
+﻿using Entidades.Cache;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoData
+namespace AccesoData.DAO
 {
     public class EventoDao : ConexionSql
     {
 
         // Devuelve el Id generado (o 0 si no se creó)
-        public int InsertarEvento(Evento evento)
+        public int InsertarEvento(EventoCache evento)
         {
             int idGenerado = 0;
 

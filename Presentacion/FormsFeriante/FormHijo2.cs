@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Tienda.Forms
 {
-    public partial class invPnl : Form
+    public partial class FormHijo2 : Form
     {
-        public invPnl()
+        public FormHijo2()
         {
             InitializeComponent();
             ConfigurarPlaceholders();
@@ -63,7 +64,8 @@ namespace Tienda.Forms
             textBox.Text = placeholder;
             textBox.ForeColor = Color.Gray;
 
-            textBox.GotFocus += (s, e) => {
+            textBox.GotFocus += (s, e) =>
+            {
                 if (textBox.Text == placeholder)
                 {
                     textBox.Text = "";
@@ -71,7 +73,8 @@ namespace Tienda.Forms
                 }
             };
 
-            textBox.LostFocus += (s, e) => {
+            textBox.LostFocus += (s, e) =>
+            {
                 if (string.IsNullOrWhiteSpace(textBox.Text))
                 {
                     textBox.Text = placeholder;
@@ -166,7 +169,7 @@ namespace Tienda.Forms
         {
 
             codigoTxt.Enabled = false;
-            DataGridViewRow Fila = TablaProd.Rows[e.RowIndex];
+            DataGridViewRow Fila = dgvEventos02.Rows[e.RowIndex];
             codigoTxt.Text = Fila.Cells[0].Value.ToString();
             nombreTxt.Text = Fila.Cells[1].Value.ToString();
             marcaTxt.Text = Fila.Cells[2].Value.ToString();
@@ -175,7 +178,7 @@ namespace Tienda.Forms
             precioTxt.Text = Fila.Cells[5].Value.ToString();
             stockTxt.Text = Fila.Cells[6].Value.ToString();
             colorFuente();
-        }      
+        }
 
         private void filtrarBtn_MouseClick(object sender, MouseEventArgs e)
         {
@@ -211,6 +214,30 @@ namespace Tienda.Forms
         private void verBDBtn_MouseLeave(object sender, EventArgs e)
         {
             verBDBtn.BackColor = Color.LightSalmon;
+        }
+
+        private void CargarEventos()
+        {
+            EventoService service = new EventoService();
+            DataTable tablaEventos = service.ObtenerEventos();
+
+            dgvEventos02.DataSource = tablaEventos;
+
+            // Opcional: personalizar columnas
+            dgvEventos02.Columns["IdEvento"].HeaderText = "ID";
+            dgvEventos02.Columns["Nombre"].HeaderText = "Nombre del Evento";
+            dgvEventos02.Columns["Tipo"].HeaderText = "Tipo";
+            dgvEventos02.Columns["FechaInicio"].HeaderText = "Inicio";
+            dgvEventos02.Columns["FechaFin"].HeaderText = "Término";
+            dgvEventos02.Columns["Lugar"].HeaderText = "Lugar";
+            dgvEventos02.Columns["Cupos"].HeaderText = "Cupos";
+            dgvEventos02.Columns["PrecioEntrada"].HeaderText = "Precio";
+            dgvEventos02.Columns["Descripcion"].HeaderText = "Descripción";
+        }
+
+        private void FormHijo2_Load(object sender, EventArgs e)
+        {
+            CargarEventos();
         }
     }
 }

@@ -11,6 +11,7 @@ using Tienda;
 using Tienda.Forms;
 using Entidades.Cache;
 using Presentacion.Forms;
+using Presentacion.FormsFeriante;
 
 namespace Presentacion
 {
@@ -22,7 +23,17 @@ namespace Presentacion
         public FormPrincipal()
         {
             InitializeComponent();
-            
+
+        }
+
+        private LinkLabel? currentLinkLabel = null;
+        private void ActivateLinkLabel(object lblSender)
+        {
+            if (lblSender != null)
+            {
+                // Solo guardamos la referencia, sin cambios visuales
+                currentLinkLabel = (LinkLabel)lblSender;
+            }
         }
 
         private void ActivateButton(object btnSender)
@@ -45,20 +56,37 @@ namespace Presentacion
         {
             foreach (Control previousBtn in sidePnl.Controls)
             {
-                if(previousBtn.GetType() == typeof(Button))
+                if (previousBtn.GetType() == typeof(Button))
                 {
                     previousBtn.BackColor = Color.Salmon;
                     previousBtn.ForeColor = Color.Black;
                     previousBtn.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                                    
+
                 }
             }
+        }
+
+        private void OpenChildFormLink(Form childForm, object lblSender)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            ActivateLinkLabel(lblSender);
+            currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.FeriantePnl.Controls.Add(childForm);
+            this.FeriantePnl.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private Form currentChildForm;
         private void OpenChildForm(Form childForm, object btnSender)
         {
-            if(currentChildForm != null)
+            if (currentChildForm != null)
             {
                 currentChildForm.Close();
             }
@@ -89,15 +117,15 @@ namespace Presentacion
             NombreLbl.Text = UserLoginCache.Nombre;
             PosicionLbl.Text = UserLoginCache.Posicion;
         }
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new invPnl(), sender);
+            OpenChildForm(new FormHijo2(), sender);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-           OpenChildForm(new FormHijo1(), sender);
+            OpenChildForm(new FormHijo1(), sender);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -105,8 +133,10 @@ namespace Presentacion
             this.Close();
         }
 
-        
-
+        private void PerfilLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenChildFormLink(new FormPerfil(), sender);
+        }
     }
 
 

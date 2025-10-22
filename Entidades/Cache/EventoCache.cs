@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entidades
+namespace Entidades.Cache
 {
-    public class Evento
+    public class EventoCache
     {
 
         public int IdEvento { get; set; }

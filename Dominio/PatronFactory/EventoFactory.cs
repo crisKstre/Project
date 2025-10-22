@@ -1,4 +1,4 @@
-﻿using Entidades;
+﻿using Entidades.Cache;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace Dominio.PatronFactory
 {
     public abstract class EventoFactory
     {
-        public abstract Evento CrearEvento(string nombre, string lugar, DateTime fechaInicio, DateTime fechaFin, string descripcion);
+        public abstract EventoCache CrearEvento(string nombre, string lugar, DateTime fechaInicio, DateTime fechaFin, string descripcion);
     }
 }

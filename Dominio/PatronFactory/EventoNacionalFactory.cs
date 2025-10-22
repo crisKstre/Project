@@ -1,4 +1,4 @@
-﻿using Entidades;
+﻿using Entidades.Cache;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,9 @@ namespace Dominio.PatronFactory
 {
     public class EventoNacionalFactory : EventoFactory
     {
-        public override Evento CrearEvento(string nombre, string lugar, DateTime fechaInicio, DateTime fechaFin, string descripcion)
+        public override EventoCache CrearEvento(string nombre, string lugar, DateTime fechaInicio, DateTime fechaFin, string descripcion)
         {
-            return new Evento
+            return new EventoCache
             {
                 Tipo = "Nacional",
                 Nombre = nombre,
