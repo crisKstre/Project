@@ -68,5 +68,39 @@ namespace AccesoData.DAO
 
             return tabla;
         }
+
+
+        public List<Puesto> ObtenerPuestosPorUsuario(int idUsuario)
+        {
+            List<Puesto> lista = new List<Puesto>();
+
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+                string sql = "SELECT * FROM Puestos WHERE IdFeriante = @IdFeriante";
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdFeriante", idUsuario);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new Puesto
+                            {
+                                IdPuesto = reader.GetInt32(reader.GetOrdinal("IdPuesto")),
+                                NombrePuesto = reader["NombrePuesto"].ToString(),
+                                Categoria = reader["Categoria"].ToString(),
+                                Descripcion = reader["Descripcion"].ToString(),
+                                Estado = reader["Estado"].ToString(),
+                                Encargado = reader["Encargado"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
     }
 }

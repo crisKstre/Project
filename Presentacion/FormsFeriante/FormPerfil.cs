@@ -54,6 +54,17 @@ namespace Presentacion.FormsFeriante
         private void FormPerfil_Load(object sender, EventArgs e)
         {
             CargarPuestos();
+            CargarPostulaciones();
         }
+
+        private void CargarPostulaciones()
+        {
+            ParticipacionService service = new ParticipacionService();
+            int idUsuario = UserLoginCache.idUsuario;
+
+            dgvPostulaciones.DataSource = service.ObtenerPostulacionesPorUsuario(idUsuario);
+            dgvPostulaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
     }
 }

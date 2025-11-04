@@ -9,6 +9,6 @@ namespace Dominio.PatronFactory
 {
     public abstract class EventoFactory
     {
-        public abstract EventoCache CrearEvento(string nombre, string lugar, DateTime fechaInicio, DateTime fechaFin, string descripcion);
+        public abstract EventoCache CrearEvento(string nombre, int idAgrupacion, string lugar, DateTime fechaInicio, DateTime fechaFin, string descripcion);
     }
 }

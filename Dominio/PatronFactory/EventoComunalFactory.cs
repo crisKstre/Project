@@ -9,12 +9,13 @@ namespace Dominio.PatronFactory
 {
     public class EventoComunalFactory : EventoFactory
     {
-        public override EventoCache CrearEvento(string nombre, string lugar, DateTime fechaInicio, DateTime fechaFin, string descripcion)
+        public override EventoCache CrearEvento(string nombre, int idAgrupacion, string lugar, DateTime fechaInicio, DateTime fechaFin, string descripcion)
         {
             EventoCache evento = new EventoCache
             {
                 Tipo = "Comunal",
                 Nombre = nombre,
+                IdAgrupacion = idAgrupacion, 
                 Lugar = lugar,
                 FechaInicio = fechaInicio,
                 FechaFin = fechaFin,
@@ -23,4 +24,5 @@ namespace Dominio.PatronFactory
             return evento;
         }
     }
+
 }

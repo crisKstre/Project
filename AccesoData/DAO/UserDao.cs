@@ -58,12 +58,12 @@ namespace AccesoData.DAO
                     else if (posicion == "Agrupacion")
                     {
                         string insertAgrupacion = @"
-                    INSERT INTO Agrupacion (IdAgrupacion, NombreAgrupacion, Encargado)
-                    VALUES (@IdAgrupacion, @NombreAgrupacion, @Encargado);";
+                    INSERT INTO Agrupacion (IdUsuario, NombreAgrupacion, Encargado)
+                    VALUES (@IdUsuario, @NombreAgrupacion, @Encargado);";
 
                         using (var commandAgrupacion = new SqlCommand(insertAgrupacion, connection))
                         {
-                            commandAgrupacion.Parameters.AddWithValue("@IdAgrupacion", idUsuario);
+                            commandAgrupacion.Parameters.AddWithValue("@IdUsuario", idUsuario);
                             commandAgrupacion.Parameters.AddWithValue("@NombreAgrupacion", loginNombre);
                             commandAgrupacion.Parameters.AddWithValue("@Encargado", nombre);
                             int rowsAffected = commandAgrupacion.ExecuteNonQuery();

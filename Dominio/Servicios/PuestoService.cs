@@ -1,5 +1,6 @@
 ﻿using AccesoData.DAO;
 using Entidades.Cache;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,5 +23,13 @@ namespace Dominio.Servicios
         {
             return puestoDao.ObtenerPuestosPorFeriante(idFeriante);
         }
+
+        public List<Puesto> ObtenerPuestosPorUsuario(int idUsuario)
+        {
+            return puestoDao.ObtenerPuestosPorUsuario(idUsuario);
+        }
+
+
     }
-}
+
+ }

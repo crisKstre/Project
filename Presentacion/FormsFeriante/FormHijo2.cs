@@ -1,4 +1,7 @@
-﻿using Dominio.Servicios;
+﻿using AccesoData.DAO;
+using Dominio.Servicios;
+using Entidades.Cache;
+using Presentacion.FormsFeriante;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +21,6 @@ namespace Tienda.Forms
             InitializeComponent();
             ConfigurarPlaceholders();
         }
-
 
 
         private void limpiarTxt()
@@ -52,11 +54,7 @@ namespace Tienda.Forms
 
         private void ConfigurarPlaceholders()
         {
-            SetPlaceholder(codigoTxt, "Ingresar código...");
-            SetPlaceholder(nombreTxt, "Ingresar nombre...");
-            SetPlaceholder(marcaTxt, "Ingresar marca...");
-            SetPlaceholder(precioTxt, "Ingresar precio...");
-            SetPlaceholder(stockTxt, "Ingresar stock...");
+           
         }
 
         private void SetPlaceholder(TextBox textBox, string placeholder)
@@ -85,98 +83,24 @@ namespace Tienda.Forms
 
         private void colorFuente()
         {
-            nombreTxt.ForeColor = Color.Black;
-            marcaTxt.ForeColor = Color.Black;
-            precioTxt.ForeColor = Color.Black;
-            stockTxt.ForeColor = Color.Black;
+           
         }
 
-        private void agregarBtn_MouseEnter(object sender, EventArgs e)
-        {
-            agregarBtn.BackColor = Color.DarkSalmon;
-        }
-
-        private void agregarBtn_MouseLeave(object sender, EventArgs e)
-        {
-            agregarBtn.BackColor = Color.LightSalmon;
-        }
-
-        private void eliminarBtn_MouseEnter(object sender, EventArgs e)
-        {
-            eliminarBtn.BackColor = Color.DarkSalmon;
-        }
-
-        private void eliminarBtn_MouseLeave(object sender, EventArgs e)
-        {
-            eliminarBtn.BackColor = Color.LightSalmon;
-        }
-
-        private void modificarBtn_MouseEnter(object sender, EventArgs e)
-        {
-            modificarBtn.BackColor = Color.DarkSalmon;
-        }
-
-        private void modificarBtn_MouseLeave(object sender, EventArgs e)
-        {
-            modificarBtn.BackColor = Color.LightSalmon;
-        }
 
         private void filtrarBtn_MouseEnter(object sender, EventArgs e)
         {
-            filtrarBtn.BackColor = Color.DarkSalmon;
+            btnPostular.BackColor = Color.DarkSalmon;
         }
 
         private void filtrarBtn_MouseLeave(object sender, EventArgs e)
         {
-            filtrarBtn.BackColor = Color.LightSalmon;
-        }
-
-        private void agregarBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void codigoTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void precioTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void stockTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void eliminarBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-
+            btnPostular.BackColor = Color.LightSalmon;
         }
 
         private void Tabla_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            codigoTxt.Enabled = false;
             DataGridViewRow Fila = dgvEventos02.Rows[e.RowIndex];
-            codigoTxt.Text = Fila.Cells[0].Value.ToString();
-            nombreTxt.Text = Fila.Cells[1].Value.ToString();
-            marcaTxt.Text = Fila.Cells[2].Value.ToString();
-            SetComboBoxValue(tallaCbx, Fila.Cells[3].Value?.ToString());
-            SetComboBoxValue(matCbx, Fila.Cells[4].Value?.ToString());
-            precioTxt.Text = Fila.Cells[5].Value.ToString();
-            stockTxt.Text = Fila.Cells[6].Value.ToString();
             colorFuente();
         }
 
@@ -193,13 +117,9 @@ namespace Tienda.Forms
         private void reiniciarTextosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarPlaceholders();
-            codigoTxt.Enabled = true;
         }
 
-        private void modificarBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
+      
 
         private void verBDBtn_MouseClick(object sender, MouseEventArgs e)
         {
@@ -239,5 +159,58 @@ namespace Tienda.Forms
         {
             CargarEventos();
         }
+
+        private void btnPostular_Click(object sender, EventArgs e)
+        {
+            if (dgvEventos02.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecciona un evento para postular.");
+                return;
+            }
+
+            int idEvento = Convert.ToInt32(dgvEventos02.SelectedRows[0].Cells["IdEvento"].Value);
+            int idUsuario = UserLoginCache.idUsuario;
+
+            ParticipacionDao participacionDao = new ParticipacionDao();
+
+            if (participacionDao.ExistePostulacion(idEvento, idUsuario))
+            {
+                MessageBox.Show("Ya estás postulando a este evento.", "Aviso");
+                return;
+            }
+
+            PuestoService puestoService = new PuestoService();
+            List<Puesto> puestos = puestoService.ObtenerPuestosPorUsuario(idUsuario);
+
+            if (puestos.Count == 0)
+            {
+                MessageBox.Show("No tienes puestos registrados. Crea uno antes de postular.");
+                return;
+            }
+
+            FormSeleccionarPuesto frm = new FormSeleccionarPuesto(puestos);
+            if (frm.ShowDialog() != DialogResult.OK)
+                return;
+
+            Puesto puestoSeleccionado = frm.PuestoSeleccionado;
+
+            ParticipacionCache nueva = new ParticipacionCache
+            {
+                IdEvento = idEvento,
+                IdUsuario = idUsuario,
+                IdPuesto = puestoSeleccionado.IdPuesto,
+                NombrePuesto = puestoSeleccionado.NombrePuesto,
+                CategoriaPuesto = puestoSeleccionado.Categoria,
+                Rol = "Feriante",
+                Estado = "Pendiente"
+            };
+
+            bool exito = participacionDao.RegistrarPostulacion(nueva);
+            if (exito)
+                MessageBox.Show("Postulación enviada correctamente.", "Éxito");
+            else
+                MessageBox.Show("Ocurrió un error al registrar la postulación.", "Error");
+        }
+
     }
 }

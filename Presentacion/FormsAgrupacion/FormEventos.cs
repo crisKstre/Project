@@ -1,4 +1,7 @@
-﻿using Dominio.Servicios;
+﻿using AccesoData.DAO;
+using Dominio.PatronFactory;
+using Dominio.Servicios;
+using Entidades.Cache;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio.PatronFactory;
 
 namespace Presentacion.FormsAgrupacion
 {
@@ -46,10 +48,18 @@ namespace Presentacion.FormsAgrupacion
                 // Crear el servicio que usa la capa de datos
                 EventoService service = new EventoService();
 
+                int idAgrupacion = service.ObtenerIdAgrupacionPorEncargado(UserLoginCache.idUsuario);
+                if (idAgrupacion == 0)
+                {
+                    MessageBox.Show("No tienes una agrupación asignada. Crea o asigna una agrupación antes de crear eventos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // Crear el evento usando la fábrica
                 int idGenerado = service.CrearEvento(
                     factory,
                     txtNombre.Text,
+                    idAgrupacion,
                     txtLugar.Text,
                     dtpFechaInicio.Value,
                     dtpFechaFin.Value,
@@ -71,6 +81,8 @@ namespace Presentacion.FormsAgrupacion
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            CargarEventosAgrupacion();
+
 
         }
 
@@ -81,7 +93,7 @@ namespace Presentacion.FormsAgrupacion
 
             dgvEventos.DataSource = tablaEventos;
 
-            // Opcional: personalizar columnas
+            // personalizar columnas
             dgvEventos.Columns["IdEvento"].HeaderText = "ID";
             dgvEventos.Columns["Nombre"].HeaderText = "Nombre del Evento";
             dgvEventos.Columns["Tipo"].HeaderText = "Tipo";
@@ -93,11 +105,17 @@ namespace Presentacion.FormsAgrupacion
             dgvEventos.Columns["Descripcion"].HeaderText = "Descripción";
         }
 
+        private void CargarEventosAgrupacion()
+        {
+            EventoService eventoService = new EventoService();
+            dgvEventos.DataSource = eventoService.ObtenerEventosConAgrupacion();
+        }
+
         private void FormEventos_Load(object sender, EventArgs e)
         {
             comboTipoEvento.Items.AddRange(new string[] { "Regional", "Comunal", "Nacional" });
             comboTipoEvento.SelectedIndex = 0; // Por defecto
-            CargarEventos();
+            CargarEventosAgrupacion();
         }
     }
 }

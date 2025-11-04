@@ -36,7 +36,10 @@
             label3 = new Label();
             dgvPuestos = new DataGridView();
             btnRegistrarPuesto = new Button();
+            label4 = new Label();
+            dgvPostulaciones = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvPuestos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPostulaciones).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -106,11 +109,31 @@
             btnRegistrarPuesto.UseVisualStyleBackColor = true;
             btnRegistrarPuesto.Click += btnRegistrarPuesto_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(40, 312);
+            label4.Name = "label4";
+            label4.Size = new Size(158, 20);
+            label4.TabIndex = 8;
+            label4.Text = "Historial Postulaciones";
+            // 
+            // dgvPostulaciones
+            // 
+            dgvPostulaciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPostulaciones.Location = new Point(48, 344);
+            dgvPostulaciones.Name = "dgvPostulaciones";
+            dgvPostulaciones.RowHeadersWidth = 51;
+            dgvPostulaciones.Size = new Size(616, 112);
+            dgvPostulaciones.TabIndex = 9;
+            // 
             // FormPerfil
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(827, 491);
+            ClientSize = new Size(833, 799);
+            Controls.Add(dgvPostulaciones);
+            Controls.Add(label4);
             Controls.Add(btnRegistrarPuesto);
             Controls.Add(dgvPuestos);
             Controls.Add(txtDescripcion);
@@ -123,6 +146,7 @@
             Text = "FormPerfil";
             Load += FormPerfil_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPuestos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPostulaciones).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -137,5 +161,7 @@
         private Label label3;
         private DataGridView dgvPuestos;
         private Button btnRegistrarPuesto;
+        private Label label4;
+        private DataGridView dgvPostulaciones;
     }
 }

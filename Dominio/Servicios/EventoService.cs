@@ -14,18 +14,28 @@ namespace Dominio.Servicios
     {
         private readonly EventoDao eventoDao = new EventoDao();
 
-        public int CrearEvento(EventoFactory factory, string nombre, string lugar, DateTime fechaInicio,DateTime fechaFin, string descripcion, int cupos, decimal precio)
+        public int CrearEvento(EventoFactory factory, string nombre,int idAgrupacion, string lugar, DateTime fechaInicio,DateTime fechaFin, string descripcion, int cupos, decimal precio)
         {
-            EventoCache nuevoEvento = factory.CrearEvento(nombre, lugar, fechaInicio, fechaFin, descripcion);
+            EventoCache nuevoEvento = factory.CrearEvento(nombre, idAgrupacion, lugar, fechaInicio, fechaFin, descripcion);
             nuevoEvento.Cupos = cupos;
             nuevoEvento.PrecioEntrada = precio;
 
             return eventoDao.InsertarEvento(nuevoEvento);
         }
 
+        public int ObtenerIdAgrupacionPorEncargado(int idUsuario)
+        {
+            return eventoDao.ObtenerIdAgrupacionPorEncargado(idUsuario);
+        }
+
         public DataTable ObtenerEventos()
         {
             return eventoDao.ObtenerEventos();
+        }
+
+        public DataTable ObtenerEventosConAgrupacion()
+        {
+            return eventoDao.ObtenerEventosConAgrupacion();
         }
 
     }
