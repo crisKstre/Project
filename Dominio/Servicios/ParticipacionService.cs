@@ -16,5 +16,18 @@ namespace Dominio.Servicios
         {
             return participacionDao.ObtenerPostulacionesPorUsuario(idUsuario);
         }
+
+        public bool CambiarEstadoPostulacion(int idParticipacion, string nuevoEstado)
+        {
+            return participacionDao.ActualizarEstadoParticipacion(idParticipacion, nuevoEstado);
+        }
+
+        public DataTable ObtenerPostulacionesDeAgrupacionPorUsuario(int idUsuario)
+        {
+            return participacionDao.ObtenerPostulacionesPorAgrupacion(idUsuario);
+        }
+
+
+
     }
 }

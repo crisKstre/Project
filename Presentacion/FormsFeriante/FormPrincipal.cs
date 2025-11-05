@@ -31,8 +31,9 @@ namespace Presentacion
         {
             if (lblSender != null)
             {
-                // Solo guardamos la referencia, sin cambios visuales
+                // guardamos la referencia, sin cambios visuales
                 currentLinkLabel = (LinkLabel)lblSender;
+                DisableButton();
             }
         }
 

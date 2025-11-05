@@ -70,6 +70,34 @@ namespace Presentacion.FormsAgrupacion
             childForm.Show();
         }
 
+        private LinkLabel? currentLinkLabel = null;
+        private void ActivateLinkLabel(object lblSender)
+        {
+            if (lblSender != null)
+            {
+                // guardamos la referencia, sin cambios visuales
+                currentLinkLabel = (LinkLabel)lblSender;
+                DisableButton();
+            }
+        }
+        private void OpenChildFormLink(Form childForm, object lblSender)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            ActivateLinkLabel(lblSender);
+            currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.AgrupacionPnl.Controls.Add(childForm);
+            this.AgrupacionPnl.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+
         private void FormPrincipalAgrupacion_Load(object sender, EventArgs e)
         {
             CargarInfoUsuario();
@@ -85,6 +113,11 @@ namespace Presentacion.FormsAgrupacion
         private void EventosBtn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormEventos(), sender);
+        }
+
+        private void PerfilLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenChildFormLink(new FormPerfilAgrupacion(), sender);
         }
     }
 }

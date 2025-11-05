@@ -19,73 +19,7 @@ namespace Tienda.Forms
         public FormHijo2()
         {
             InitializeComponent();
-            ConfigurarPlaceholders();
         }
-
-
-        private void limpiarTxt()
-        {
-            ConfigurarPlaceholders();
-        }
-
-        private void SetComboBoxValue(ComboBox comboBox, string value)
-        {
-            if (value != null)
-            {
-                int index = comboBox.FindStringExact(value);
-                if (index >= 0)
-                {
-                    comboBox.SelectedIndex = index;
-                }
-                else
-                {
-                    index = comboBox.FindString(value);
-                    if (index >= 0)
-                    {
-                        comboBox.SelectedIndex = index;
-                    }
-                    else
-                    {
-                        comboBox.Text = value;
-                    }
-                }
-            }
-        }
-
-        private void ConfigurarPlaceholders()
-        {
-           
-        }
-
-        private void SetPlaceholder(TextBox textBox, string placeholder)
-        {
-            textBox.Text = placeholder;
-            textBox.ForeColor = Color.Gray;
-
-            textBox.GotFocus += (s, e) =>
-            {
-                if (textBox.Text == placeholder)
-                {
-                    textBox.Text = "";
-                    textBox.ForeColor = Color.Black;
-                }
-            };
-
-            textBox.LostFocus += (s, e) =>
-            {
-                if (string.IsNullOrWhiteSpace(textBox.Text))
-                {
-                    textBox.Text = placeholder;
-                    textBox.ForeColor = Color.Gray;
-                }
-            };
-        }
-
-        private void colorFuente()
-        {
-           
-        }
-
 
         private void filtrarBtn_MouseEnter(object sender, EventArgs e)
         {
@@ -101,7 +35,6 @@ namespace Tienda.Forms
         {
 
             DataGridViewRow Fila = dgvEventos02.Rows[e.RowIndex];
-            colorFuente();
         }
 
         private void filtrarBtn_MouseClick(object sender, MouseEventArgs e)
@@ -116,30 +49,12 @@ namespace Tienda.Forms
 
         private void reiniciarTextosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurarPlaceholders();
-        }
-
-      
-
-        private void verBDBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void verBDBtn_MouseEnter(object sender, EventArgs e)
-        {
-            verBDBtn.BackColor = Color.DarkSalmon;
-        }
-
-        private void verBDBtn_MouseLeave(object sender, EventArgs e)
-        {
-            verBDBtn.BackColor = Color.LightSalmon;
         }
 
         private void CargarEventos()
         {
             EventoService service = new EventoService();
-            DataTable tablaEventos = service.ObtenerEventos();
+            DataTable tablaEventos = service.ObtenerEventosConAgrupacion();
 
             dgvEventos02.DataSource = tablaEventos;
 
@@ -153,6 +68,7 @@ namespace Tienda.Forms
             dgvEventos02.Columns["Cupos"].HeaderText = "Cupos";
             dgvEventos02.Columns["PrecioEntrada"].HeaderText = "Precio";
             dgvEventos02.Columns["Descripcion"].HeaderText = "Descripción";
+            dgvEventos02.Columns["NombreAgrupacion"].HeaderText = "Agrupación Organizadora";
         }
 
         private void FormHijo2_Load(object sender, EventArgs e)

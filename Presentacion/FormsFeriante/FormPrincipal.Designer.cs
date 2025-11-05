@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             sidePnl = new Panel();
+            PerfilLink = new LinkLabel();
             PosicionLbl = new Label();
             NombreLbl = new Label();
             NombreAgrupacionLbl = new Label();
             btnCerrarSesion = new Button();
             ventasBtn = new Button();
-            invBtn = new Button();
+            eventosBtn = new Button();
             FeriantePnl = new Panel();
             label3 = new Label();
-            PerfilLink = new LinkLabel();
             sidePnl.SuspendLayout();
             FeriantePnl.SuspendLayout();
             SuspendLayout();
@@ -52,13 +52,26 @@
             sidePnl.Controls.Add(NombreAgrupacionLbl);
             sidePnl.Controls.Add(btnCerrarSesion);
             sidePnl.Controls.Add(ventasBtn);
-            sidePnl.Controls.Add(invBtn);
+            sidePnl.Controls.Add(eventosBtn);
             sidePnl.Location = new Point(0, 0);
             sidePnl.Margin = new Padding(3, 4, 3, 4);
             sidePnl.Name = "sidePnl";
             sidePnl.Size = new Size(152, 821);
             sidePnl.TabIndex = 0;
             sidePnl.Paint += panel1_Paint;
+            // 
+            // PerfilLink
+            // 
+            PerfilLink.AutoSize = true;
+            PerfilLink.Font = new Font("Segoe UI", 13F);
+            PerfilLink.LinkColor = Color.Teal;
+            PerfilLink.Location = new Point(8, 16);
+            PerfilLink.Name = "PerfilLink";
+            PerfilLink.Size = new Size(61, 30);
+            PerfilLink.TabIndex = 27;
+            PerfilLink.TabStop = true;
+            PerfilLink.Text = "Perfil";
+            PerfilLink.LinkClicked += PerfilLink_LinkClicked;
             // 
             // PosicionLbl
             // 
@@ -126,23 +139,23 @@
             ventasBtn.UseVisualStyleBackColor = false;
             ventasBtn.Click += button1_Click_1;
             // 
-            // invBtn
+            // eventosBtn
             // 
-            invBtn.BackColor = Color.Salmon;
-            invBtn.Cursor = Cursors.Hand;
-            invBtn.FlatAppearance.BorderSize = 0;
-            invBtn.FlatStyle = FlatStyle.Flat;
-            invBtn.Font = new Font("Leelawadee", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            invBtn.ForeColor = Color.Black;
-            invBtn.Location = new Point(-2, 175);
-            invBtn.Margin = new Padding(3, 4, 3, 4);
-            invBtn.Name = "invBtn";
-            invBtn.Size = new Size(210, 91);
-            invBtn.TabIndex = 21;
-            invBtn.Text = "   Inventario";
-            invBtn.TextAlign = ContentAlignment.MiddleLeft;
-            invBtn.UseVisualStyleBackColor = false;
-            invBtn.Click += button1_Click;
+            eventosBtn.BackColor = Color.Salmon;
+            eventosBtn.Cursor = Cursors.Hand;
+            eventosBtn.FlatAppearance.BorderSize = 0;
+            eventosBtn.FlatStyle = FlatStyle.Flat;
+            eventosBtn.Font = new Font("Leelawadee", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            eventosBtn.ForeColor = Color.Black;
+            eventosBtn.Location = new Point(-2, 175);
+            eventosBtn.Margin = new Padding(3, 4, 3, 4);
+            eventosBtn.Name = "eventosBtn";
+            eventosBtn.Size = new Size(210, 91);
+            eventosBtn.TabIndex = 21;
+            eventosBtn.Text = "   Eventos";
+            eventosBtn.TextAlign = ContentAlignment.MiddleLeft;
+            eventosBtn.UseVisualStyleBackColor = false;
+            eventosBtn.Click += button1_Click;
             // 
             // FeriantePnl
             // 
@@ -164,19 +177,6 @@
             label3.TabIndex = 1;
             label3.Text = "Hola Mundo";
             label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // PerfilLink
-            // 
-            PerfilLink.AutoSize = true;
-            PerfilLink.Font = new Font("Segoe UI", 13F);
-            PerfilLink.LinkColor = Color.Teal;
-            PerfilLink.Location = new Point(8, 16);
-            PerfilLink.Name = "PerfilLink";
-            PerfilLink.Size = new Size(61, 30);
-            PerfilLink.TabIndex = 27;
-            PerfilLink.TabStop = true;
-            PerfilLink.Text = "Perfil";
-            PerfilLink.LinkClicked += PerfilLink_LinkClicked;
             // 
             // FormPrincipal
             // 
@@ -204,7 +204,7 @@
 
         private System.Windows.Forms.Panel sidePnl;
         private System.Windows.Forms.Panel FeriantePnl;
-        private System.Windows.Forms.Button invBtn;
+        private System.Windows.Forms.Button eventosBtn;
         private System.Windows.Forms.Button ventasBtn;
         private System.Windows.Forms.Label label3;
         private Button btnCerrarSesion;

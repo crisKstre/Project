@@ -82,5 +82,99 @@ namespace AccesoData.DAO
             }
         }
 
+        public bool ActualizarEstadoParticipacion(int idParticipacion, string nuevoEstado)
+        {
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+                string sql = "UPDATE Participacion SET Estado = @Estado WHERE IdParticipacion = @IdParticipacion";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@Estado", nuevoEstado);
+                    cmd.Parameters.AddWithValue("@IdParticipacion", idParticipacion);
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+                }
+            }
+        }
+
+        public DataTable ObtenerPostulacionesPorAgrupacion(int idUsuario)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+
+                string nombreEncargado = ObtenerNombreUsuario(idUsuario);
+                int idAgrupacion = ObtenerIdAgrupacionPorEncargado(nombreEncargado);
+
+                if (idAgrupacion == 0)
+                    return tabla; // no hay agrupación vinculada a este usuario
+
+                string sql = @"
+                    SELECT 
+                        p.IdParticipacion,
+                        u.Nombre AS Feriante,
+                        p.NombrePuesto,
+                        p.CategoriaPuesto,
+                        p.Estado,
+                        e.Nombre AS Evento,
+                        e.Lugar,
+                        e.FechaInicio,
+                        e.FechaFin
+                    FROM Participacion p
+                    INNER JOIN Evento e ON p.IdEvento = e.IdEvento
+                    INNER JOIN Usuarios u ON p.IdUsuario = u.IdUsuario
+                    WHERE e.IdAgrupacion = @IdAgrupacion
+                    ORDER BY e.FechaInicio DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdAgrupacion", idAgrupacion);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
+
+        private int ObtenerIdAgrupacionPorEncargado(string nombreEncargado)
+        {
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+                string sql = "SELECT IdAgrupacion FROM Agrupacion WHERE Encargado = @Encargado";
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@Encargado", nombreEncargado);
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 0;
+                }
+            }
+        }
+
+        private string ObtenerNombreUsuario(int idUsuario)
+        {
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+                string sql = "SELECT Nombre FROM Usuarios WHERE IdUsuario = @IdUsuario";
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? result.ToString() : "";
+                }
+            }
+        }
+
+
+
     }
 }

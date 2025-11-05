@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            filtrarBg = new Panel();
+            postularBg = new Panel();
             btnPostular = new Label();
             dgvEventos02 = new DataGridView();
             inv_tl_Bg = new Panel();
@@ -37,24 +37,21 @@
             popmenu1 = new ContextMenuStrip(components);
             reiniciarToolStripMenuItem = new ToolStripMenuItem();
             reiniciarTextosToolStripMenuItem = new ToolStripMenuItem();
-            verBDBg = new Panel();
-            verBDBtn = new Label();
-            filtrarBg.SuspendLayout();
+            postularBg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEventos02).BeginInit();
             inv_tl_Bg.SuspendLayout();
             popmenu1.SuspendLayout();
-            verBDBg.SuspendLayout();
             SuspendLayout();
             // 
-            // filtrarBg
+            // postularBg
             // 
-            filtrarBg.BackColor = Color.LightSalmon;
-            filtrarBg.Controls.Add(btnPostular);
-            filtrarBg.Location = new Point(296, 304);
-            filtrarBg.Margin = new Padding(3, 4, 3, 4);
-            filtrarBg.Name = "filtrarBg";
-            filtrarBg.Size = new Size(172, 48);
-            filtrarBg.TabIndex = 40;
+            postularBg.BackColor = Color.LightSalmon;
+            postularBg.Controls.Add(btnPostular);
+            postularBg.Location = new Point(560, 88);
+            postularBg.Margin = new Padding(3, 4, 3, 4);
+            postularBg.Name = "postularBg";
+            postularBg.Size = new Size(172, 48);
+            postularBg.TabIndex = 40;
             // 
             // btnPostular
             // 
@@ -76,12 +73,12 @@
             // 
             dgvEventos02.AllowUserToAddRows = false;
             dgvEventos02.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEventos02.Location = new Point(51, 494);
+            dgvEventos02.Location = new Point(51, 176);
             dgvEventos02.Margin = new Padding(3, 4, 3, 4);
             dgvEventos02.Name = "dgvEventos02";
             dgvEventos02.RowHeadersWidth = 51;
             dgvEventos02.RowTemplate.Height = 24;
-            dgvEventos02.Size = new Size(678, 284);
+            dgvEventos02.Size = new Size(678, 602);
             dgvEventos02.TabIndex = 36;
             dgvEventos02.RowHeaderMouseClick += Tabla_RowHeaderMouseClick;
             // 
@@ -104,7 +101,7 @@
             tituloLbl.Name = "tituloLbl";
             tituloLbl.Size = new Size(293, 42);
             tituloLbl.TabIndex = 0;
-            tituloLbl.Text = "  Inventario";
+            tituloLbl.Text = "  Eventos";
             tituloLbl.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // popmenu1
@@ -128,57 +125,30 @@
             reiniciarTextosToolStripMenuItem.Text = "Reiniciar Textos";
             reiniciarTextosToolStripMenuItem.Click += reiniciarTextosToolStripMenuItem_Click;
             // 
-            // verBDBg
-            // 
-            verBDBg.BackColor = Color.LightSalmon;
-            verBDBg.Controls.Add(verBDBtn);
-            verBDBg.Location = new Point(657, 454);
-            verBDBg.Margin = new Padding(3, 4, 3, 4);
-            verBDBg.Name = "verBDBg";
-            verBDBg.Size = new Size(72, 32);
-            verBDBg.TabIndex = 42;
-            // 
-            // verBDBtn
-            // 
-            verBDBtn.Cursor = Cursors.Hand;
-            verBDBtn.Dock = DockStyle.Fill;
-            verBDBtn.Font = new Font("Leelawadee", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            verBDBtn.Location = new Point(0, 0);
-            verBDBtn.Name = "verBDBtn";
-            verBDBtn.Size = new Size(72, 32);
-            verBDBtn.TabIndex = 0;
-            verBDBtn.Text = "ver";
-            verBDBtn.TextAlign = ContentAlignment.MiddleCenter;
-            verBDBtn.MouseClick += verBDBtn_MouseClick;
-            verBDBtn.MouseEnter += verBDBtn_MouseEnter;
-            verBDBtn.MouseLeave += verBDBtn_MouseLeave;
-            // 
             // FormHijo2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(770, 799);
             ContextMenuStrip = popmenu1;
-            Controls.Add(verBDBg);
-            Controls.Add(filtrarBg);
+            Controls.Add(postularBg);
             Controls.Add(dgvEventos02);
             Controls.Add(inv_tl_Bg);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormHijo2";
-            Text = "invPnl";
+            Text = "Eventos";
             Load += FormHijo2_Load;
-            filtrarBg.ResumeLayout(false);
+            postularBg.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvEventos02).EndInit();
             inv_tl_Bg.ResumeLayout(false);
             popmenu1.ResumeLayout(false);
-            verBDBg.ResumeLayout(false);
             ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel filtrarBg;
+        private System.Windows.Forms.Panel postularBg;
         private System.Windows.Forms.Label btnPostular;
         private System.Windows.Forms.DataGridView dgvEventos02;
         private System.Windows.Forms.Panel inv_tl_Bg;
@@ -186,7 +156,5 @@
         private System.Windows.Forms.ContextMenuStrip popmenu1;
         private System.Windows.Forms.ToolStripMenuItem reiniciarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reiniciarTextosToolStripMenuItem;
-        private System.Windows.Forms.Panel verBDBg;
-        private System.Windows.Forms.Label verBDBtn;
     }
 }
