@@ -21,16 +21,40 @@ namespace Presentacion.FormsAgrupacion
         }
 
         private ParticipacionService participacionService = new ParticipacionService();
+        private EventoService EventoService = new EventoService();
 
         private void FormPerfilAgrupacion_Load(object sender, EventArgs e)
         {
             CargarPostulaciones();
             ConfigurarBotones();
+            CargarEventosPorAgrupacion();
         }
         private void CargarPostulaciones()
         {
             int idUsuario = UserLoginCache.idUsuario;
             dgvPostulaciones.DataSource = participacionService.ObtenerPostulacionesDeAgrupacionPorUsuario(idUsuario);
+            // dgvPostulaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPostulaciones.Columns["IdParticipacion"].Visible = false;
+            dgvPostulaciones.Columns["NombrePuesto"].HeaderText = "Nombre del Puesto";
+            dgvPostulaciones.Columns["CategoriaPuesto"].HeaderText = "Categoria del Puesto";
+            dgvPostulaciones.Columns["FechaInicio"].HeaderText = "Inicio";
+            dgvPostulaciones.Columns["FechaFin"].HeaderText = "Término";
+
+        }
+
+        private void CargarEventosPorAgrupacion()
+        {
+            dgvMisEventos.DataSource = EventoService.ObtenerEventosPorAgrupacion();
+            // dgvMisEventos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMisEventos.Columns["IdEvento"].Visible = false;
+            dgvMisEventos.Columns["Nombre"].HeaderText = "Nombre del Evento";
+            dgvMisEventos.Columns["Tipo"].HeaderText = "Tipo";
+            dgvMisEventos.Columns["FechaInicio"].HeaderText = "Inicio";
+            dgvMisEventos.Columns["FechaFin"].HeaderText = "Término";
+            dgvMisEventos.Columns["Lugar"].HeaderText = "Lugar";
+            dgvMisEventos.Columns["Cupos"].HeaderText = "Cupos";
+            dgvMisEventos.Columns["PrecioEntrada"].HeaderText = "Precio";
+            dgvMisEventos.Columns["Descripcion"].HeaderText = "Descripción";
         }
 
 
@@ -57,7 +81,7 @@ namespace Presentacion.FormsAgrupacion
             }
         }
 
-        private void dgvPostulaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPostulaciones_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -82,6 +106,49 @@ namespace Presentacion.FormsAgrupacion
             }
         }
 
+        private void reiniciarTablasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CargarPostulaciones();
+            CargarEventosPorAgrupacion();
+        }
 
+        private void reiniciarTablaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CargarEventosPorAgrupacion();
+        }
+
+        private void eliminarEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvMisEventos.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecciona un evento para eliminar.");
+                return;
+            }
+
+            int idEvento = Convert.ToInt32(dgvMisEventos.SelectedRows[0].Cells["IdEvento"].Value);
+            string nombreEvento = dgvMisEventos.SelectedRows[0].Cells["Nombre"].Value.ToString();
+
+            DialogResult result = MessageBox.Show(
+                $"¿Estás seguro de eliminar el evento \"{nombreEvento}\"?\n" +
+                $"Esto también eliminará todas las postulaciones asociadas.",
+                "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                EventoService service = new EventoService();
+                bool eliminado = service.EliminarEvento(idEvento);
+
+                if (eliminado)
+                {
+                    MessageBox.Show("Evento y postulaciones eliminados correctamente.", "Éxito");
+                    CargarEventosPorAgrupacion(); // Método que actualiza el DataGridView
+                    CargarPostulaciones(); // Actualiza las postulaciones también
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el evento.", "Error");
+                }
+            }
+        }
     }
 }

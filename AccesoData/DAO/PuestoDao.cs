@@ -46,6 +46,45 @@ namespace AccesoData.DAO
             return idGenerado;
         }
 
+        public bool EliminarPuesto(int idPuesto)
+        {
+            using (SqlConnection connection = GetSqlConnection())
+            {
+                connection.Open();
+
+                SqlTransaction transaction = connection.BeginTransaction();
+
+                try
+                {
+                    // Primero eliminar postulaciones/participaciones relacionadas
+                    string queryPostulaciones = "DELETE FROM Participacion WHERE IdPuesto = @IdPuesto";
+                    using (SqlCommand cmd1 = new SqlCommand(queryPostulaciones, connection, transaction))
+                    {
+                        cmd1.Parameters.AddWithValue("@IdPuesto", idPuesto);
+                        cmd1.ExecuteNonQuery();
+                    }
+
+                    // Luego eliminar el puesto
+                    string queryPuesto = "DELETE FROM Puestos WHERE IdPuesto = @IdPuesto";
+                    using (SqlCommand cmd2 = new SqlCommand(queryPuesto, connection, transaction))
+                    {
+                        cmd2.Parameters.AddWithValue("@IdPuesto", idPuesto);
+                        cmd2.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    Console.WriteLine("Error al eliminar puesto: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+
 
         public DataTable ObtenerPuestosPorFeriante(int idFeriante)
         {
@@ -54,7 +93,7 @@ namespace AccesoData.DAO
             using (SqlConnection con = GetSqlConnection())
             {
                 con.Open();
-                string sql = "SELECT * FROM Puestos WHERE IdFeriante = @IdFeriante";
+                string sql = "SELECT idPuesto, NombrePuesto, Categoria, Descripcion, Estado, Encargado FROM Puestos WHERE IdFeriante = @IdFeriante";
 
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {

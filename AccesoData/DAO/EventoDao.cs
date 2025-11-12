@@ -1,6 +1,7 @@
 ﻿using Entidades.Cache;
 using Microsoft.Data.SqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -51,6 +52,50 @@ namespace AccesoData.DAO
             }
 
             return idGenerado;
+        }
+
+        public bool EliminarEvento(int idEvento)
+        {
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+                SqlTransaction transaction = con.BeginTransaction();
+
+                try
+                {
+                    // Primero eliminamos las participaciones asociadas
+                    string sqlParticipaciones = "DELETE FROM Participacion WHERE IdEvento = @IdEvento";
+                    using (SqlCommand cmd = new SqlCommand(sqlParticipaciones, con, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@IdEvento", idEvento);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Luego eliminamos el evento
+                    string sqlEvento = "DELETE FROM Evento WHERE IdEvento = @IdEvento";
+                    using (SqlCommand cmd = new SqlCommand(sqlEvento, con, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@IdEvento", idEvento);
+                        int filas = cmd.ExecuteNonQuery();
+
+                        if (filas > 0)
+                        {
+                            transaction.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            transaction.Rollback();
+                            return false;
+                        }
+                    }
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
 
         public int ObtenerIdAgrupacionPorEncargado(int idUsuario)
@@ -127,6 +172,43 @@ namespace AccesoData.DAO
             return tabla;
         }
 
+        public DataTable ObtenerEventosPorAgrupacion()
+        {
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+
+                int idAgrupacion = ObtenerIdAgrupacionPorEncargado(UserLoginCache.idUsuario);
+                if (idAgrupacion == 0)
+                    return new DataTable(); // No hay agrupación asociada al usuario
+
+                string sql = @"
+                    SELECT 
+                        IdEvento,
+                        Nombre,
+                        Tipo,
+                        FechaInicio,
+                        FechaFin,
+                        Lugar,
+                        Cupos,
+                        PrecioEntrada,
+                        Descripcion
+                    FROM Evento
+                    WHERE IdAgrupacion = @IdAgrupacion
+                    ORDER BY FechaInicio DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdAgrupacion", idAgrupacion);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable tabla = new DataTable();
+                        da.Fill(tabla);
+                        return tabla;
+                    }
+                }
+            }
+        }
 
 
 

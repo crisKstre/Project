@@ -119,5 +119,10 @@ namespace Presentacion.FormsAgrupacion
         {
             OpenChildFormLink(new FormPerfilAgrupacion(), sender);
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

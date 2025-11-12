@@ -44,7 +44,7 @@ namespace Tienda.Forms
 
         private void reiniciarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CargarEventos();
         }
 
         private void reiniciarTextosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,8 +58,8 @@ namespace Tienda.Forms
 
             dgvEventos02.DataSource = tablaEventos;
 
-            // Opcional: personalizar columnas
-            dgvEventos02.Columns["IdEvento"].HeaderText = "ID";
+            // {Opcional} personalizar columnas
+            dgvEventos02.Columns["IdEvento"].Visible = false;
             dgvEventos02.Columns["Nombre"].HeaderText = "Nombre del Evento";
             dgvEventos02.Columns["Tipo"].HeaderText = "Tipo";
             dgvEventos02.Columns["FechaInicio"].HeaderText = "Inicio";

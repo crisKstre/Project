@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             postularBg = new Panel();
             btnPostular = new Label();
-            dgvEventos02 = new DataGridView();
             inv_tl_Bg = new Panel();
             tituloLbl = new Label();
             popmenu1 = new ContextMenuStrip(components);
             reiniciarToolStripMenuItem = new ToolStripMenuItem();
-            reiniciarTextosToolStripMenuItem = new ToolStripMenuItem();
+            dgvEventos02 = new DataGridView();
             postularBg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvEventos02).BeginInit();
             inv_tl_Bg.SuspendLayout();
             popmenu1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEventos02).BeginInit();
             SuspendLayout();
             // 
             // postularBg
@@ -57,7 +58,7 @@
             // 
             btnPostular.Cursor = Cursors.Hand;
             btnPostular.Dock = DockStyle.Fill;
-            btnPostular.Font = new Font("Leelawadee", 10.2F, FontStyle.Bold);
+            btnPostular.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPostular.Location = new Point(0, 0);
             btnPostular.Name = "btnPostular";
             btnPostular.Size = new Size(172, 48);
@@ -68,19 +69,6 @@
             btnPostular.MouseClick += filtrarBtn_MouseClick;
             btnPostular.MouseEnter += filtrarBtn_MouseEnter;
             btnPostular.MouseLeave += filtrarBtn_MouseLeave;
-            // 
-            // dgvEventos02
-            // 
-            dgvEventos02.AllowUserToAddRows = false;
-            dgvEventos02.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEventos02.Location = new Point(51, 176);
-            dgvEventos02.Margin = new Padding(3, 4, 3, 4);
-            dgvEventos02.Name = "dgvEventos02";
-            dgvEventos02.RowHeadersWidth = 51;
-            dgvEventos02.RowTemplate.Height = 24;
-            dgvEventos02.Size = new Size(678, 602);
-            dgvEventos02.TabIndex = 36;
-            dgvEventos02.RowHeaderMouseClick += Tabla_RowHeaderMouseClick;
             // 
             // inv_tl_Bg
             // 
@@ -96,7 +84,7 @@
             // 
             tituloLbl.BackColor = Color.LightSalmon;
             tituloLbl.Dock = DockStyle.Fill;
-            tituloLbl.Font = new Font("Leelawadee", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tituloLbl.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tituloLbl.Location = new Point(0, 0);
             tituloLbl.Name = "tituloLbl";
             tituloLbl.Size = new Size(293, 42);
@@ -107,41 +95,74 @@
             // popmenu1
             // 
             popmenu1.ImageScalingSize = new Size(20, 20);
-            popmenu1.Items.AddRange(new ToolStripItem[] { reiniciarToolStripMenuItem, reiniciarTextosToolStripMenuItem });
+            popmenu1.Items.AddRange(new ToolStripItem[] { reiniciarToolStripMenuItem });
             popmenu1.Name = "popmenu1";
-            popmenu1.Size = new Size(182, 52);
+            popmenu1.Size = new Size(211, 56);
             // 
             // reiniciarToolStripMenuItem
             // 
             reiniciarToolStripMenuItem.Name = "reiniciarToolStripMenuItem";
-            reiniciarToolStripMenuItem.Size = new Size(181, 24);
+            reiniciarToolStripMenuItem.Size = new Size(210, 24);
             reiniciarToolStripMenuItem.Text = "Reiniciar";
             reiniciarToolStripMenuItem.Click += reiniciarToolStripMenuItem_Click;
             // 
-            // reiniciarTextosToolStripMenuItem
+            // dgvEventos02
             // 
-            reiniciarTextosToolStripMenuItem.Name = "reiniciarTextosToolStripMenuItem";
-            reiniciarTextosToolStripMenuItem.Size = new Size(181, 24);
-            reiniciarTextosToolStripMenuItem.Text = "Reiniciar Textos";
-            reiniciarTextosToolStripMenuItem.Click += reiniciarTextosToolStripMenuItem_Click;
+            dgvEventos02.AllowUserToAddRows = false;
+            dgvEventos02.AllowUserToDeleteRows = false;
+            dgvEventos02.AllowUserToResizeColumns = false;
+            dgvEventos02.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvEventos02.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvEventos02.BackgroundColor = Color.White;
+            dgvEventos02.BorderStyle = BorderStyle.None;
+            dgvEventos02.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvEventos02.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvEventos02.ColumnHeadersHeight = 48;
+            dgvEventos02.Cursor = Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.DarkSalmon;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvEventos02.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvEventos02.EnableHeadersVisualStyles = false;
+            dgvEventos02.GridColor = SystemColors.ControlDark;
+            dgvEventos02.Location = new Point(17, 176);
+            dgvEventos02.Name = "dgvEventos02";
+            dgvEventos02.RowHeadersVisible = false;
+            dgvEventos02.RowHeadersWidth = 51;
+            dgvEventos02.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvEventos02.Size = new Size(736, 520);
+            dgvEventos02.TabIndex = 41;
+            dgvEventos02.RowHeaderMouseClick += Tabla_RowHeaderMouseClick;
             // 
             // FormHijo2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(770, 799);
             ContextMenuStrip = popmenu1;
-            Controls.Add(postularBg);
             Controls.Add(dgvEventos02);
+            Controls.Add(postularBg);
             Controls.Add(inv_tl_Bg);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormHijo2";
             Text = "Eventos";
             Load += FormHijo2_Load;
             postularBg.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvEventos02).EndInit();
             inv_tl_Bg.ResumeLayout(false);
             popmenu1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvEventos02).EndInit();
             ResumeLayout(false);
 
         }
@@ -150,11 +171,10 @@
 
         private System.Windows.Forms.Panel postularBg;
         private System.Windows.Forms.Label btnPostular;
-        private System.Windows.Forms.DataGridView dgvEventos02;
         private System.Windows.Forms.Panel inv_tl_Bg;
         private System.Windows.Forms.Label tituloLbl;
         private System.Windows.Forms.ContextMenuStrip popmenu1;
         private System.Windows.Forms.ToolStripMenuItem reiniciarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reiniciarTextosToolStripMenuItem;
+        private DataGridView dgvEventos02;
     }
 }

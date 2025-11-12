@@ -59,13 +59,10 @@ namespace AccesoData.DAO
                 con.Open();
                 string query = @"
                     SELECT 
-                        P.IdParticipacion,
                         E.Nombre,
                         E.FechaInicio,
                         E.FechaFin,
                         P.NombrePuesto,
-                        P.CategoriaPuesto,
-                        P.Rol,
                         P.Estado
                     FROM Participacion P
                     INNER JOIN Evento E ON P.IdEvento = E.IdEvento

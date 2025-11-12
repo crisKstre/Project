@@ -20,7 +20,7 @@ namespace Dominio.Servicios
         }
 
         public DataTable ObtenerPuestosPorFeriante(int idFeriante)
-        {
+        { 
             return puestoDao.ObtenerPuestosPorFeriante(idFeriante);
         }
 
@@ -29,6 +29,10 @@ namespace Dominio.Servicios
             return puestoDao.ObtenerPuestosPorUsuario(idUsuario);
         }
 
+        public bool EliminarPuesto(int idPuesto)
+        {
+            return puestoDao.EliminarPuesto(idPuesto);
+        }
 
     }
 

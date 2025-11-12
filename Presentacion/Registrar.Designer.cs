@@ -50,11 +50,11 @@
             // 
             IniciarSLink.AutoSize = true;
             IniciarSLink.Cursor = Cursors.Hand;
-            IniciarSLink.Font = new Font("Leelawadee", 12F);
+            IniciarSLink.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             IniciarSLink.LinkColor = Color.DimGray;
             IniciarSLink.Location = new Point(600, 448);
             IniciarSLink.Name = "IniciarSLink";
-            IniciarSLink.Size = new Size(51, 24);
+            IniciarSLink.Size = new Size(56, 23);
             IniciarSLink.TabIndex = 6;
             IniciarSLink.TabStop = true;
             IniciarSLink.Text = "Aquí";
@@ -86,10 +86,10 @@
             // FoA
             // 
             FoA.AutoSize = true;
-            FoA.Font = new Font("Lucida Console", 13.8F);
+            FoA.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FoA.Location = new Point(504, 272);
             FoA.Name = "FoA";
-            FoA.Size = new Size(326, 27);
+            FoA.Size = new Size(288, 31);
             FoA.TabIndex = 19;
             FoA.Text = "Feriante o Agrupacion";
             FoA.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             btnRegistrar.FlatAppearance.MouseDownBackColor = Color.DarkTurquoise;
             btnRegistrar.FlatAppearance.MouseOverBackColor = Color.Turquoise;
             btnRegistrar.FlatStyle = FlatStyle.Flat;
-            btnRegistrar.Font = new Font("Leelawadee", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistrar.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistrar.ForeColor = Color.Azure;
             btnRegistrar.Location = new Point(224, 352);
             btnRegistrar.Name = "btnRegistrar";
@@ -122,10 +122,10 @@
             // TelefonoLbl
             // 
             TelefonoLbl.AutoSize = true;
-            TelefonoLbl.Font = new Font("Lucida Console", 13.8F);
+            TelefonoLbl.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold);
             TelefonoLbl.Location = new Point(184, 232);
             TelefonoLbl.Name = "TelefonoLbl";
-            TelefonoLbl.Size = new Size(122, 23);
+            TelefonoLbl.Size = new Size(108, 27);
             TelefonoLbl.TabIndex = 16;
             TelefonoLbl.Text = "Telefono";
             // 
@@ -141,10 +141,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Lucida Console", 13.8F);
+            label5.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold);
             label5.Location = new Point(608, 136);
             label5.Name = "label5";
-            label5.Size = new Size(150, 23);
+            label5.Size = new Size(142, 27);
             label5.TabIndex = 14;
             label5.Text = "Contraseña";
             // 
@@ -159,10 +159,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Lucida Console", 13.8F);
+            label4.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold);
             label4.Location = new Point(200, 136);
             label4.Name = "label4";
-            label4.Size = new Size(80, 23);
+            label4.Size = new Size(73, 27);
             label4.TabIndex = 12;
             label4.Text = "Email";
             // 
@@ -177,10 +177,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Lucida Console", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(488, 32);
             label3.Name = "label3";
-            label3.Size = new Size(388, 23);
+            label3.Size = new Size(363, 27);
             label3.TabIndex = 10;
             label3.Text = "Nombre Negocio / Agrupación";
             // 
@@ -195,20 +195,20 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Lucida Console", 13.8F);
+            label2.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(200, 32);
             label2.Name = "label2";
-            label2.Size = new Size(94, 23);
+            label2.Size = new Size(103, 27);
             label2.TabIndex = 8;
             label2.Text = "Nombre";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Leelawadee", 12F);
-            label1.Location = new Point(328, 448);
+            label1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(288, 448);
             label1.Name = "label1";
-            label1.Size = new Size(273, 24);
+            label1.Size = new Size(313, 23);
             label1.TabIndex = 7;
             label1.Text = "Ya tienes cuenta? Inicia sesion ";
             // 

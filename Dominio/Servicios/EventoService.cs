@@ -38,5 +38,16 @@ namespace Dominio.Servicios
             return eventoDao.ObtenerEventosConAgrupacion();
         }
 
+        public DataTable ObtenerEventosPorAgrupacion()
+        {
+            return eventoDao.ObtenerEventosPorAgrupacion();
+        }
+
+        public bool EliminarEvento(int idEvento)
+        {
+            return eventoDao.EliminarEvento(idEvento);
+        }
+
+
     }
 }

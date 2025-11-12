@@ -86,15 +86,11 @@ namespace Presentacion.FormsAgrupacion
 
         }
 
-        private void CargarEventos()
+        private void CargarEventosAgrupacion()
         {
-            EventoService service = new EventoService();
-            DataTable tablaEventos = service.ObtenerEventos();
-
-            dgvEventos.DataSource = tablaEventos;
-
-            // personalizar columnas
-            dgvEventos.Columns["IdEvento"].HeaderText = "ID";
+            EventoService eventoService = new EventoService();
+            dgvEventos.DataSource = eventoService.ObtenerEventosConAgrupacion();
+            dgvEventos.Columns["IdEvento"].Visible= false;
             dgvEventos.Columns["Nombre"].HeaderText = "Nombre del Evento";
             dgvEventos.Columns["Tipo"].HeaderText = "Tipo";
             dgvEventos.Columns["FechaInicio"].HeaderText = "Inicio";
@@ -103,12 +99,7 @@ namespace Presentacion.FormsAgrupacion
             dgvEventos.Columns["Cupos"].HeaderText = "Cupos";
             dgvEventos.Columns["PrecioEntrada"].HeaderText = "Precio";
             dgvEventos.Columns["Descripcion"].HeaderText = "Descripción";
-        }
-
-        private void CargarEventosAgrupacion()
-        {
-            EventoService eventoService = new EventoService();
-            dgvEventos.DataSource = eventoService.ObtenerEventosConAgrupacion();
+            dgvEventos.Columns["NombreAgrupacion"].HeaderText = "Agrupación Organizadora";
         }
 
         private void FormEventos_Load(object sender, EventArgs e)

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Tienda;
 using Tienda.Forms;
 using Entidades.Cache;
-using Presentacion.Forms;
+//using Presentacion.Forms;
 using Presentacion.FormsFeriante;
 
 namespace Presentacion
@@ -124,10 +124,6 @@ namespace Presentacion
             OpenChildForm(new FormHijo2(), sender);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormHijo1(), sender);
-        }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {

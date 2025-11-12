@@ -57,7 +57,7 @@
             // 
             LoginTitle.BackColor = Color.DarkTurquoise;
             LoginTitle.Dock = DockStyle.Fill;
-            LoginTitle.Font = new Font("Leelawadee", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LoginTitle.Font = new Font("Century Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LoginTitle.ForeColor = Color.DarkSlateGray;
             LoginTitle.Location = new Point(0, 0);
             LoginTitle.Name = "LoginTitle";

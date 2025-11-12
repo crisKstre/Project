@@ -54,12 +54,12 @@
             // errorLbl
             // 
             errorLbl.AutoSize = true;
-            errorLbl.Font = new Font("Segoe UI", 11F);
+            errorLbl.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             errorLbl.Image = (Image)resources.GetObject("errorLbl.Image");
             errorLbl.ImageAlign = ContentAlignment.MiddleLeft;
             errorLbl.Location = new Point(224, 192);
             errorLbl.Name = "errorLbl";
-            errorLbl.Size = new Size(54, 25);
+            errorLbl.Size = new Size(47, 21);
             errorLbl.TabIndex = 14;
             errorLbl.Text = "Error";
             errorLbl.Visible = false;
@@ -68,11 +68,11 @@
             // 
             linkLabel1.AutoSize = true;
             linkLabel1.Cursor = Cursors.Hand;
-            linkLabel1.Font = new Font("Leelawadee", 12F);
+            linkLabel1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             linkLabel1.LinkColor = Color.DimGray;
             linkLabel1.Location = new Point(424, 360);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(106, 24);
+            linkLabel1.Size = new Size(113, 23);
             linkLabel1.TabIndex = 13;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Registrarse";
@@ -81,12 +81,12 @@
             // txtPass
             // 
             txtPass.BorderStyle = BorderStyle.None;
-            txtPass.Font = new Font("Leelawadee", 13F);
+            txtPass.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPass.Location = new Point(221, 143);
             txtPass.Name = "txtPass";
             txtPass.PlaceholderText = "Contraseña";
-            txtPass.Size = new Size(515, 26);
-            txtPass.TabIndex = 12;
+            txtPass.Size = new Size(515, 27);
+            txtPass.TabIndex = 11;
             txtPass.UseSystemPasswordChar = true;
             // 
             // btnLogin
@@ -96,12 +96,12 @@
             btnLogin.FlatAppearance.MouseDownBackColor = Color.DarkTurquoise;
             btnLogin.FlatAppearance.MouseOverBackColor = Color.Turquoise;
             btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Leelawadee", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogin.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.Azure;
             btnLogin.Location = new Point(224, 272);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(512, 64);
-            btnLogin.TabIndex = 11;
+            btnLogin.TabIndex = 12;
             btnLogin.Text = "Ingresar";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
@@ -110,12 +110,12 @@
             // 
             txtUsuario.BackColor = Color.White;
             txtUsuario.BorderStyle = BorderStyle.None;
-            txtUsuario.Font = new Font("Leelawadee", 13F);
+            txtUsuario.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsuario.ForeColor = Color.Black;
             txtUsuario.Location = new Point(221, 78);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = " Nombre de Usuario";
-            txtUsuario.Size = new Size(515, 26);
+            txtUsuario.Size = new Size(515, 27);
             txtUsuario.TabIndex = 10;
             // 
             // LoginUI
