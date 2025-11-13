@@ -33,6 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPerfil));
             label1 = new Label();
             txtNombrePuesto = new TextBox();
             txtCategoria = new TextBox();
@@ -295,8 +296,9 @@
             Controls.Add(label2);
             Controls.Add(txtNombrePuesto);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormPerfil";
-            Text = "FormPerfil";
+            Text = "Perfil";
             Load += FormPerfil_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPuestos).EndInit();
             contextMenuStrip2.ResumeLayout(false);

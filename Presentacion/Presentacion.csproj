@@ -6,7 +6,13 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>App</AssemblyName>
+    <ApplicationIcon>evento.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="evento.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj" />

@@ -33,6 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPerfilAgrupacion));
             inv_tl_Bg = new Panel();
             tituloLbl = new Label();
             label1 = new Label();
@@ -137,13 +138,13 @@
             contextMenuStrip2.ImageScalingSize = new Size(20, 20);
             contextMenuStrip2.Items.AddRange(new ToolStripItem[] { reiniciarTablaToolStripMenuItem, eliminarEventoToolStripMenuItem });
             contextMenuStrip2.Name = "contextMenuStrip2";
-            contextMenuStrip2.Size = new Size(211, 80);
+            contextMenuStrip2.Size = new Size(191, 52);
             // 
             // reiniciarTablaToolStripMenuItem
             // 
             reiniciarTablaToolStripMenuItem.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             reiniciarTablaToolStripMenuItem.Name = "reiniciarTablaToolStripMenuItem";
-            reiniciarTablaToolStripMenuItem.Size = new Size(210, 24);
+            reiniciarTablaToolStripMenuItem.Size = new Size(190, 24);
             reiniciarTablaToolStripMenuItem.Text = "Reiniciar tabla";
             reiniciarTablaToolStripMenuItem.Click += reiniciarTablaToolStripMenuItem_Click;
             // 
@@ -151,7 +152,7 @@
             // 
             eliminarEventoToolStripMenuItem.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             eliminarEventoToolStripMenuItem.Name = "eliminarEventoToolStripMenuItem";
-            eliminarEventoToolStripMenuItem.Size = new Size(210, 24);
+            eliminarEventoToolStripMenuItem.Size = new Size(190, 24);
             eliminarEventoToolStripMenuItem.Text = "Eliminar evento";
             eliminarEventoToolStripMenuItem.Click += eliminarEventoToolStripMenuItem_Click;
             // 
@@ -222,6 +223,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(inv_tl_Bg);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormPerfilAgrupacion";
             Text = "Perfil";
             Load += FormPerfilAgrupacion_Load;

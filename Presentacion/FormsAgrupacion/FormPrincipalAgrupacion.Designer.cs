@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipalAgrupacion));
             AgrupacionPnl = new Panel();
             label3 = new Label();
             sidePnl = new Panel();
@@ -164,10 +165,11 @@
             ClientSize = new Size(982, 816);
             Controls.Add(AgrupacionPnl);
             Controls.Add(sidePnl);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1000, 863);
             MinimumSize = new Size(1000, 863);
             Name = "FormPrincipalAgrupacion";
-            Text = "FormPrincipalAgrupacion";
+            Text = "Agrupaciones";
             Load += FormPrincipalAgrupacion_Load;
             AgrupacionPnl.ResumeLayout(false);
             sidePnl.ResumeLayout(false);

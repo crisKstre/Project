@@ -114,7 +114,6 @@ namespace Presentacion
 
         private void CargarInfoUsuario()
         {
-            NombreAgrupacionLbl.Text = UserLoginCache.LoginNombre;
             NombreLbl.Text = UserLoginCache.Nombre;
             PosicionLbl.Text = UserLoginCache.Posicion;
         }

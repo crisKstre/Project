@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHijo2));
             postularBg = new Panel();
             btnPostular = new Label();
             inv_tl_Bg = new Panel();
@@ -97,12 +98,12 @@
             popmenu1.ImageScalingSize = new Size(20, 20);
             popmenu1.Items.AddRange(new ToolStripItem[] { reiniciarToolStripMenuItem });
             popmenu1.Name = "popmenu1";
-            popmenu1.Size = new Size(211, 56);
+            popmenu1.Size = new Size(136, 28);
             // 
             // reiniciarToolStripMenuItem
             // 
             reiniciarToolStripMenuItem.Name = "reiniciarToolStripMenuItem";
-            reiniciarToolStripMenuItem.Size = new Size(210, 24);
+            reiniciarToolStripMenuItem.Size = new Size(135, 24);
             reiniciarToolStripMenuItem.Text = "Reiniciar";
             reiniciarToolStripMenuItem.Click += reiniciarToolStripMenuItem_Click;
             // 
@@ -155,6 +156,7 @@
             Controls.Add(dgvEventos02);
             Controls.Add(postularBg);
             Controls.Add(inv_tl_Bg);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormHijo2";
             Text = "Eventos";

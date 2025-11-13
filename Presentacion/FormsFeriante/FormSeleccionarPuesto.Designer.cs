@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSeleccionarPuesto));
             cmbPuestos = new ComboBox();
             btnAceptar = new Button();
             btnCancelar = new Button();
@@ -36,7 +37,7 @@
             // 
             // cmbPuestos
             // 
-            cmbPuestos.BackColor = SystemColors.Control;
+            cmbPuestos.BackColor = Color.Honeydew;
             cmbPuestos.Cursor = Cursors.Hand;
             cmbPuestos.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPuestos.FlatStyle = FlatStyle.Flat;
@@ -102,6 +103,7 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(cmbPuestos);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormSeleccionarPuesto";
             Text = "Selección de Puesto";
             ResumeLayout(false);

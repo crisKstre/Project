@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             LoginPnl = new Panel();
             panel2 = new Panel();
             LoginTitle = new Label();
@@ -73,9 +74,10 @@
             ClientSize = new Size(982, 603);
             Controls.Add(LoginPnl);
             Controls.Add(panel2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Login";
-            Text = "Login";
+            Text = "Bienvenido!";
             panel2.ResumeLayout(false);
             ResumeLayout(false);
         }

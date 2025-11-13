@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             sidePnl = new Panel();
             PerfilLink = new LinkLabel();
             PosicionLbl = new Label();
             NombreLbl = new Label();
-            NombreAgrupacionLbl = new Label();
             btnCerrarSesion = new Button();
             eventosBtn = new Button();
             FeriantePnl = new Panel();
@@ -48,7 +48,6 @@
             sidePnl.Controls.Add(PerfilLink);
             sidePnl.Controls.Add(PosicionLbl);
             sidePnl.Controls.Add(NombreLbl);
-            sidePnl.Controls.Add(NombreAgrupacionLbl);
             sidePnl.Controls.Add(btnCerrarSesion);
             sidePnl.Controls.Add(eventosBtn);
             sidePnl.Location = new Point(0, 0);
@@ -75,7 +74,7 @@
             // 
             PosicionLbl.AutoSize = true;
             PosicionLbl.Font = new Font("Century Gothic", 10.2F);
-            PosicionLbl.Location = new Point(8, 128);
+            PosicionLbl.Location = new Point(8, 96);
             PosicionLbl.Name = "PosicionLbl";
             PosicionLbl.Size = new Size(60, 21);
             PosicionLbl.TabIndex = 26;
@@ -85,21 +84,11 @@
             // 
             NombreLbl.AutoSize = true;
             NombreLbl.Font = new Font("Century Gothic", 10.2F);
-            NombreLbl.Location = new Point(8, 96);
+            NombreLbl.Location = new Point(8, 64);
             NombreLbl.Name = "NombreLbl";
             NombreLbl.Size = new Size(60, 21);
             NombreLbl.TabIndex = 25;
             NombreLbl.Text = "label2";
-            // 
-            // NombreAgrupacionLbl
-            // 
-            NombreAgrupacionLbl.AutoSize = true;
-            NombreAgrupacionLbl.Font = new Font("Century Gothic", 10.2F);
-            NombreAgrupacionLbl.Location = new Point(8, 64);
-            NombreAgrupacionLbl.Name = "NombreAgrupacionLbl";
-            NombreAgrupacionLbl.Size = new Size(60, 21);
-            NombreAgrupacionLbl.TabIndex = 24;
-            NombreAgrupacionLbl.Text = "label1";
             // 
             // btnCerrarSesion
             // 
@@ -165,13 +154,14 @@
             ClientSize = new Size(982, 816);
             Controls.Add(FeriantePnl);
             Controls.Add(sidePnl);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MaximumSize = new Size(1000, 863);
             MinimumSize = new Size(1000, 863);
             Name = "FormPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Admin";
+            Text = "Feriantes";
             Load += AdminWF_Load;
             sidePnl.ResumeLayout(false);
             sidePnl.PerformLayout();
@@ -189,7 +179,6 @@
         private Button btnCerrarSesion;
         private Label PosicionLbl;
         private Label NombreLbl;
-        private Label NombreAgrupacionLbl;
         private LinkLabel PerfilLink;
     }
 }
