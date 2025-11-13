@@ -137,12 +137,12 @@
             dgvEventos02.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEventos02.EnableHeadersVisualStyles = false;
             dgvEventos02.GridColor = SystemColors.ControlDark;
-            dgvEventos02.Location = new Point(17, 176);
+            dgvEventos02.Location = new Point(32, 176);
             dgvEventos02.Name = "dgvEventos02";
             dgvEventos02.RowHeadersVisible = false;
             dgvEventos02.RowHeadersWidth = 51;
             dgvEventos02.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEventos02.Size = new Size(775, 608);
+            dgvEventos02.Size = new Size(760, 608);
             dgvEventos02.TabIndex = 41;
             dgvEventos02.RowHeaderMouseClick += Tabla_RowHeaderMouseClick;
             // 

@@ -150,6 +150,7 @@
             txtCupos.Name = "txtCupos";
             txtCupos.Size = new Size(168, 26);
             txtCupos.TabIndex = 10;
+            txtCupos.KeyPress += txtCupos_KeyPress;
             // 
             // txtPrecio
             // 
@@ -159,6 +160,7 @@
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(152, 26);
             txtPrecio.TabIndex = 12;
+            txtPrecio.KeyPress += txtPrecio_KeyPress;
             // 
             // PrecioLbl
             // 

@@ -87,6 +87,17 @@ namespace Tienda.Forms
             int idEvento = Convert.ToInt32(dgvEventos02.SelectedRows[0].Cells["IdEvento"].Value);
             int idUsuario = UserLoginCache.idUsuario;
 
+            // Obtener la fecha de fin del evento desde el DataGridView
+            DateTime fechaFin = Convert.ToDateTime(dgvEventos02.SelectedRows[0].Cells["FechaFin"].Value);
+
+            // Verificar si el evento ya terminó
+            if (fechaFin < DateTime.Now.Date)
+            {
+                MessageBox.Show("No puedes postularte a un evento que ya ha finalizado o esta en curso.", "Aviso", MessageBoxButtons.OK);
+                return;
+            }
+
+
             ParticipacionDao participacionDao = new ParticipacionDao();
 
             if (participacionDao.ExistePostulacion(idEvento, idUsuario))

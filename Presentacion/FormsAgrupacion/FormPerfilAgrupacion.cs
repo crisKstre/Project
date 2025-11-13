@@ -37,8 +37,9 @@ namespace Presentacion.FormsAgrupacion
             dgvPostulaciones.Columns["IdParticipacion"].Visible = false;
             dgvPostulaciones.Columns["NombrePuesto"].HeaderText = "Nombre del Puesto";
             dgvPostulaciones.Columns["CategoriaPuesto"].HeaderText = "Categoria del Puesto";
-            dgvPostulaciones.Columns["FechaInicio"].HeaderText = "Inicio";
-            dgvPostulaciones.Columns["FechaFin"].HeaderText = "Término";
+            dgvPostulaciones.Columns["Lugar"].Visible = false;
+            dgvPostulaciones.Columns["FechaInicio"].Visible = false;
+            dgvPostulaciones.Columns["FechaFin"].Visible = false;
 
         }
 

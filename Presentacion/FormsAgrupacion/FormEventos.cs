@@ -23,9 +23,20 @@ namespace Presentacion.FormsAgrupacion
 
         private void btnCrearEvento_Click(object sender, EventArgs e)
         {
-            if(txtNombre.Text == "" || txtLugar.Text == "" || txtDescripcion.Text == "" || txtCupos.Text == "" || txtPrecio.Text == "")
+            if (txtNombre.Text == "" || txtLugar.Text == "" || txtDescripcion.Text == "" || txtCupos.Text == "" || txtPrecio.Text == "")
             {
                 MessageBox.Show("Por favor, complete todos los campos.", "Atención", MessageBoxButtons.OK);
+                return;
+            }
+
+            DateTime fechaInicio = dtpFechaInicio.Value.Date;
+            DateTime fechaTermino = dtpFechaFin.Value.Date;
+
+            if (fechaInicio > fechaTermino)
+            {
+                MessageBox.Show("La fecha de inicio debe ser anterior a la fecha de término.",
+                                "Fechas inválidas",
+                                MessageBoxButtons.OK);
                 return;
             }
             try
@@ -75,6 +86,12 @@ namespace Presentacion.FormsAgrupacion
                 if (idGenerado > 0)
                 {
                     MessageBox.Show($"Evento creado con éxito. ID generado: {idGenerado}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCupos.Clear();
+                    txtDescripcion.Clear();
+                    txtLugar.Clear();
+                    txtNombre.Clear();
+                    txtPrecio.Clear();
+                    txtPrecio.Clear();
                 }
                 else
                 {
@@ -94,7 +111,7 @@ namespace Presentacion.FormsAgrupacion
         {
             EventoService eventoService = new EventoService();
             dgvEventos.DataSource = eventoService.ObtenerEventosConAgrupacion();
-            dgvEventos.Columns["IdEvento"].Visible= false;
+            dgvEventos.Columns["IdEvento"].Visible = false;
             dgvEventos.Columns["Nombre"].HeaderText = "Nombre del Evento";
             dgvEventos.Columns["Tipo"].HeaderText = "Tipo";
             dgvEventos.Columns["FechaInicio"].HeaderText = "Inicio";
@@ -111,6 +128,24 @@ namespace Presentacion.FormsAgrupacion
             comboTipoEvento.Items.AddRange(new string[] { "Regional", "Comunal", "Nacional" });
             comboTipoEvento.SelectedIndex = 0; // Por defecto
             CargarEventosAgrupacion();
+        }
+
+        private void SoloNumeros(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCupos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumeros(e);
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumeros(e);
         }
     }
 }

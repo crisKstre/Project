@@ -69,14 +69,14 @@ namespace Presentacion
             // Validar que no exista el usuario
             if (userDao.UserExists(txtUsuario.Text, txtEmail.Text))
             {
-                MessageBox.Show("El usuario o email ya existen");
+                MessageBox.Show("El usuario o email ya existen","Error");
                 return;
             }
 
             // Convertir teléfono a int (con validación)
             if (!int.TryParse(txtTelefono.Text, out int telefono))
             {
-                MessageBox.Show("El teléfono debe ser un número válido");
+                MessageBox.Show("El teléfono debe ser un número válido","Error");
                 return;
             }
 
@@ -93,12 +93,12 @@ namespace Presentacion
 
             if (success)
             {
-                MessageBox.Show("Usuario registrado exitosamente");
+                MessageBox.Show("Usuario registrado exitosamente","Proceso completado!");
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Error al registrar usuario");
+                MessageBox.Show("Error al registrar usuario","Error al completar el proceso!");
             }
         }
     }
