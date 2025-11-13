@@ -49,7 +49,7 @@
             // 
             postularBg.BackColor = Color.LightSalmon;
             postularBg.Controls.Add(btnPostular);
-            postularBg.Location = new Point(560, 88);
+            postularBg.Location = new Point(576, 96);
             postularBg.Margin = new Padding(3, 4, 3, 4);
             postularBg.Name = "postularBg";
             postularBg.Size = new Size(172, 48);
@@ -142,7 +142,7 @@
             dgvEventos02.RowHeadersVisible = false;
             dgvEventos02.RowHeadersWidth = 51;
             dgvEventos02.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEventos02.Size = new Size(736, 520);
+            dgvEventos02.Size = new Size(775, 608);
             dgvEventos02.TabIndex = 41;
             dgvEventos02.RowHeaderMouseClick += Tabla_RowHeaderMouseClick;
             // 
@@ -151,7 +151,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(770, 799);
+            ClientSize = new Size(816, 809);
             ContextMenuStrip = popmenu1;
             Controls.Add(dgvEventos02);
             Controls.Add(postularBg);
