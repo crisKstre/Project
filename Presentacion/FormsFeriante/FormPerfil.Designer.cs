@@ -51,6 +51,7 @@
             tituloLbl = new Label();
             dgvPostulaciones = new DataGridView();
             btnRegistrarPuesto = new Button();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPuestos).BeginInit();
             contextMenuStrip2.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
@@ -62,7 +63,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(40, 120);
+            label1.Location = new Point(40, 96);
             label1.Name = "label1";
             label1.Size = new Size(122, 20);
             label1.TabIndex = 0;
@@ -71,7 +72,7 @@
             // txtNombrePuesto
             // 
             txtNombrePuesto.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNombrePuesto.Location = new Point(40, 152);
+            txtNombrePuesto.Location = new Point(40, 128);
             txtNombrePuesto.Name = "txtNombrePuesto";
             txtNombrePuesto.Size = new Size(160, 26);
             txtNombrePuesto.TabIndex = 1;
@@ -79,7 +80,7 @@
             // txtCategoria
             // 
             txtCategoria.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCategoria.Location = new Point(240, 152);
+            txtCategoria.Location = new Point(240, 128);
             txtCategoria.Name = "txtCategoria";
             txtCategoria.Size = new Size(160, 26);
             txtCategoria.TabIndex = 3;
@@ -88,7 +89,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(240, 120);
+            label2.Location = new Point(240, 96);
             label2.Name = "label2";
             label2.Size = new Size(84, 20);
             label2.TabIndex = 2;
@@ -97,7 +98,7 @@
             // txtDescripcion
             // 
             txtDescripcion.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDescripcion.Location = new Point(448, 152);
+            txtDescripcion.Location = new Point(448, 128);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(160, 26);
             txtDescripcion.TabIndex = 5;
@@ -106,7 +107,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(448, 120);
+            label3.Location = new Point(448, 96);
             label3.Name = "label3";
             label3.Size = new Size(96, 20);
             label3.TabIndex = 4;
@@ -263,13 +264,13 @@
             // 
             // btnRegistrarPuesto
             // 
-            btnRegistrarPuesto.BackColor = Color.Salmon;
+            btnRegistrarPuesto.BackColor = Color.LightSalmon;
             btnRegistrarPuesto.Cursor = Cursors.Hand;
             btnRegistrarPuesto.FlatAppearance.BorderSize = 0;
             btnRegistrarPuesto.FlatStyle = FlatStyle.Flat;
             btnRegistrarPuesto.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistrarPuesto.ForeColor = Color.Black;
-            btnRegistrarPuesto.Location = new Point(640, 136);
+            btnRegistrarPuesto.Location = new Point(640, 112);
             btnRegistrarPuesto.Margin = new Padding(3, 4, 3, 4);
             btnRegistrarPuesto.Name = "btnRegistrarPuesto";
             btnRegistrarPuesto.Size = new Size(170, 51);
@@ -278,6 +279,16 @@
             btnRegistrarPuesto.UseVisualStyleBackColor = false;
             btnRegistrarPuesto.Click += btnRegistrarPuesto_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(40, 192);
+            label5.Name = "label5";
+            label5.Size = new Size(107, 21);
+            label5.TabIndex = 24;
+            label5.Text = "Mis puestos";
+            // 
             // FormPerfil
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -285,6 +296,7 @@
             BackColor = Color.White;
             ClientSize = new Size(833, 799);
             ContextMenuStrip = contextMenuStrip1;
+            Controls.Add(label5);
             Controls.Add(btnRegistrarPuesto);
             Controls.Add(dgvPostulaciones);
             Controls.Add(inv_tl_Bg);
@@ -328,5 +340,6 @@
         private ContextMenuStrip contextMenuStrip2;
         private ToolStripMenuItem reiniciarTablaToolStripMenuItem;
         private ToolStripMenuItem eliminarPuestoToolStripMenuItem;
+        private Label label5;
     }
 }

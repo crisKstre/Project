@@ -75,7 +75,7 @@
             // 
             inv_tl_Bg.BackColor = Color.Salmon;
             inv_tl_Bg.Controls.Add(tituloLbl);
-            inv_tl_Bg.Location = new Point(12, 15);
+            inv_tl_Bg.Location = new Point(8, 8);
             inv_tl_Bg.Margin = new Padding(3, 4, 3, 4);
             inv_tl_Bg.Name = "inv_tl_Bg";
             inv_tl_Bg.Size = new Size(293, 42);

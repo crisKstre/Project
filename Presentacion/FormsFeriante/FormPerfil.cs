@@ -21,6 +21,11 @@ namespace Presentacion.FormsFeriante
 
         private void btnRegistrarPuesto_Click(object sender, EventArgs e)
         {
+            if(txtCategoria.Text == "" || txtDescripcion.Text == "" || txtNombrePuesto.Text == "")
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Atención");
+                return;
+            }
             PuestoService service = new PuestoService();
             Puesto nuevoPuesto = new Puesto
             {

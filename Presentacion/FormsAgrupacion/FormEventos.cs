@@ -23,7 +23,11 @@ namespace Presentacion.FormsAgrupacion
 
         private void btnCrearEvento_Click(object sender, EventArgs e)
         {
-
+            if(txtNombre.Text == "" || txtLugar.Text == "" || txtDescripcion.Text == "" || txtCupos.Text == "" || txtPrecio.Text == "")
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Atención", MessageBoxButtons.OK);
+                return;
+            }
             try
             {
                 string tipoSeleccionado = comboTipoEvento.SelectedItem.ToString();
