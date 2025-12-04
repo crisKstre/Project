@@ -19,22 +19,13 @@ namespace Presentacion
     {
 
         private Button currentButton;
+        private bool isLoggingOut = false;
+
 
         public FormPrincipal()
         {
             InitializeComponent();
 
-        }
-
-        private LinkLabel? currentLinkLabel = null;
-        private void ActivateLinkLabel(object lblSender)
-        {
-            if (lblSender != null)
-            {
-                // guardamos la referencia, sin cambios visuales
-                currentLinkLabel = (LinkLabel)lblSender;
-                DisableButton();
-            }
         }
 
         private void ActivateButton(object btnSender)
@@ -44,11 +35,10 @@ namespace Presentacion
                 if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
-                    Color color = Color.LightSalmon;
+                    Color color = Color.MediumTurquoise;
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("Leelawadee", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }
@@ -59,29 +49,10 @@ namespace Presentacion
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
-                    previousBtn.BackColor = Color.Salmon;
-                    previousBtn.ForeColor = Color.Black;
-                    previousBtn.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
+                    previousBtn.BackColor = Color.DarkSlateGray;
+                    previousBtn.ForeColor = Color.Snow;
                 }
             }
-        }
-
-        private void OpenChildFormLink(Form childForm, object lblSender)
-        {
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            ActivateLinkLabel(lblSender);
-            currentChildForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.FeriantePnl.Controls.Add(childForm);
-            this.FeriantePnl.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
         }
 
         private Form currentChildForm;
@@ -110,6 +81,7 @@ namespace Presentacion
         private void AdminWF_Load(object sender, EventArgs e)
         {
             CargarInfoUsuario();
+            AjustarAEscritorioDisponible();
         }
 
         private void CargarInfoUsuario()
@@ -126,12 +98,32 @@ namespace Presentacion
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            isLoggingOut = true;
+            Form mainmenu = new Login();
+            mainmenu.Show();
             this.Close();
         }
 
-        private void PerfilLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void FormPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            OpenChildFormLink(new FormPerfil(), sender);
+            if (!isLoggingOut)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void AjustarAEscritorioDisponible()
+        {
+            Rectangle areaTrabajo = Screen.PrimaryScreen.WorkingArea;
+
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(areaTrabajo.Left, areaTrabajo.Top);
+            this.Size = new Size(areaTrabajo.Width, areaTrabajo.Height);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormPerfil(), sender);
         }
     }
 

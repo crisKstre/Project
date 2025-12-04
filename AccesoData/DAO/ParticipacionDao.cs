@@ -63,9 +63,13 @@ namespace AccesoData.DAO
                         E.FechaInicio,
                         E.FechaFin,
                         P.NombrePuesto,
+                        E.Lugar,
+                        A.NombreAgrupacion,
                         P.Estado
+                       
                     FROM Participacion P
                     INNER JOIN Evento E ON P.IdEvento = E.IdEvento
+                    INNER JOIN Agrupacion A ON E.IdAgrupacion = A.IdAgrupacion  
                     WHERE P.IdUsuario = @IdUsuario";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))

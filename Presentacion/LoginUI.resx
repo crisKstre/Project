@@ -120,11 +120,14 @@
   <metadata name="LoginPnl.GridSize" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>32, 32</value>
   </metadata>
+  <metadata name="panel1.GridSize" type="System.Drawing.Size, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>12, 12</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="errorLbl.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAO1JREFUSEvtlEsOgjAQhjmKh6DDEp16BI0LvA16VQ5ATVyg0UxDEYZpSQF3fAkr
+        DAAACwwBP0AiyAAAAO1JREFUSEvtlEsOgjAQhjmKh6DDEp16BI0LvA16VQ5ATVyg0UxDEYZpSQF3fAkr
         /kfbSSZJNmJ55tnOaHU3Otvzfz5ISx7y8n8DbDhC9dDwMVo1RqcXruGQhrTWg1AFS+gUJHTfVEk//OeB
         G9d1tFdlBrlEDldNfUxzrh1QI5xGRlQvg+nVaQzCWdRoVQzTPIRKFoc7PCVvClsc7pBKVgt32BJ26u42
         S8MJ++a+gt7gZyENdPREc0ukcO+QY0s84Xag0uCjSkLhTjO7xCAcRsbIVRHcwqssO4SS6zr+vq6JtqSc

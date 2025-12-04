@@ -30,62 +30,33 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             LoginPnl = new Panel();
-            panel2 = new Panel();
-            LoginTitle = new Label();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // LoginPnl
             // 
+            LoginPnl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             LoginPnl.BackColor = Color.Azure;
-            LoginPnl.Dock = DockStyle.Fill;
-            LoginPnl.Location = new Point(0, 104);
+            LoginPnl.Location = new Point(0, 0);
             LoginPnl.Name = "LoginPnl";
-            LoginPnl.Size = new Size(982, 499);
+            LoginPnl.Size = new Size(1382, 853);
             LoginPnl.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Turquoise;
-            panel2.Controls.Add(LoginTitle);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(982, 104);
-            panel2.TabIndex = 0;
-            // 
-            // LoginTitle
-            // 
-            LoginTitle.BackColor = Color.DarkTurquoise;
-            LoginTitle.Dock = DockStyle.Fill;
-            LoginTitle.Font = new Font("Century Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginTitle.ForeColor = Color.DarkSlateGray;
-            LoginTitle.Location = new Point(0, 0);
-            LoginTitle.Name = "LoginTitle";
-            LoginTitle.Size = new Size(982, 104);
-            LoginTitle.TabIndex = 0;
-            LoginTitle.Text = "Bienvenido";
-            LoginTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(982, 603);
+            ClientSize = new Size(1382, 853);
             Controls.Add(LoginPnl);
-            Controls.Add(panel2);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
+            MaximumSize = new Size(1400, 900);
             Name = "Login";
             Text = "Bienvenido!";
-            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel LoginPnl;
-        private Panel panel2;
-        private Label LoginTitle;
     }
 }

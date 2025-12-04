@@ -23,12 +23,12 @@ namespace Tienda.Forms
 
         private void filtrarBtn_MouseEnter(object sender, EventArgs e)
         {
-            btnPostular.BackColor = Color.DarkSalmon;
+            btnPostular.BackColor = Color.CadetBlue;
         }
 
         private void filtrarBtn_MouseLeave(object sender, EventArgs e)
         {
-            btnPostular.BackColor = Color.LightSalmon;
+            btnPostular.BackColor = Color.MediumTurquoise;
         }
 
         private void Tabla_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -57,6 +57,8 @@ namespace Tienda.Forms
             DataTable tablaEventos = service.ObtenerEventosConAgrupacion();
 
             dgvEventos02.DataSource = tablaEventos;
+            dgvEventos02.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
 
             // {Opcional} personalizar columnas
             dgvEventos02.Columns["IdEvento"].Visible = false;

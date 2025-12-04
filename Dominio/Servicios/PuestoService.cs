@@ -34,6 +34,12 @@ namespace Dominio.Servicios
             return puestoDao.EliminarPuesto(idPuesto);
         }
 
+        public bool ActualizarPuesto(Puesto puesto)
+        {
+            return puestoDao.ActualizarPuesto(puesto);
+        }
+
+
     }
 
- }
+}

@@ -51,12 +51,12 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.BackColor = Color.Salmon;
+            btnAceptar.BackColor = Color.MediumTurquoise;
             btnAceptar.Cursor = Cursors.Hand;
             btnAceptar.FlatAppearance.BorderSize = 0;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAceptar.ForeColor = Color.Black;
+            btnAceptar.ForeColor = Color.Snow;
             btnAceptar.Location = new Point(216, 88);
             btnAceptar.Margin = new Padding(3, 4, 3, 4);
             btnAceptar.Name = "btnAceptar";
@@ -68,12 +68,12 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = Color.Salmon;
+            btnCancelar.BackColor = Color.MediumTurquoise;
             btnCancelar.Cursor = Cursors.Hand;
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.ForeColor = Color.Black;
+            btnCancelar.ForeColor = Color.Snow;
             btnCancelar.Location = new Point(344, 88);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
@@ -97,7 +97,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.LightCyan;
             ClientSize = new Size(497, 184);
             Controls.Add(label1);
             Controls.Add(btnCancelar);

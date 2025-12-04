@@ -15,6 +15,7 @@ namespace Presentacion
 {
     public partial class LoginUI : Form
     {
+
         public LoginUI()
         {
             InitializeComponent();
@@ -81,29 +82,31 @@ namespace Presentacion
 
                     if (loginValido == true)
                     {
+                        this.Hide();
+
                         if (UserLoginCache.Posicion == TipoUsuario.Agrupacion)
                         {
-                            FormsAgrupacion.FormPrincipalAgrupacion mainmenu = new FormsAgrupacion.FormPrincipalAgrupacion();
-                            mainmenu.Show();
-                            mainmenu.FormClosed += CerrarSesion;
+                            var mainmenu = new FormsAgrupacion.FormPrincipalAgrupacion();
                             this.ParentForm.Hide();
+                            mainmenu.FormClosed += (s, args) => this.ParentForm.Close();
+                            mainmenu.Show();
                         }
-                        if (UserLoginCache.Posicion == TipoUsuario.Feriante)
+                        else if (UserLoginCache.Posicion == TipoUsuario.Feriante)
                         {
-                            FormPrincipal mainmenu = new FormPrincipal();
-                            mainmenu.Show();
-                            mainmenu.FormClosed += CerrarSesion;
+                            var mainmenu = new FormPrincipal();
                             this.ParentForm.Hide();
+                            mainmenu.FormClosed += (s, args) => this.ParentForm.Hide();
+                            mainmenu.Show();
                         }
                         else
                         {
+                            this.ParentForm.Show();
                             msgError("Tipo de usuario no reconocido.");
                         }
                     }
                     else
                     {
-                        msgError("Nombre de usuario o contraseña incorrecta \n" +
-                                 "     Inténtalo de nuevo");
+                        msgError("Nombre de usuario o contraseña incorrecta \n     Inténtalo de nuevo");
                         txtPass.Clear();
                         txtUsuario.Focus();
                     }
@@ -122,7 +125,7 @@ namespace Presentacion
 
         private void msgError(string msg)
         {
-            errorLbl.Text = "     " + msg ;
+            errorLbl.Text = "     " + msg;
             errorLbl.Visible = true;
             Debug.WriteLine(msg);
         }
@@ -136,5 +139,20 @@ namespace Presentacion
             txtUsuario.Focus();
         }
 
+        private void LoginUI_Resize(object sender, EventArgs e)
+        {
+            CentrarPanel();
+        }
+
+        private void CentrarPanel()
+        {
+            LoginPnl.Left = (this.ClientSize.Width - LoginPnl.Width) / 2;
+            LoginPnl.Top = (this.ClientSize.Height - LoginPnl.Height) / 2;
+        }
+
+        private void LoginPnl_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

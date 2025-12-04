@@ -47,22 +47,24 @@
             // 
             // postularBg
             // 
-            postularBg.BackColor = Color.LightSalmon;
+            postularBg.BackColor = Color.MediumTurquoise;
             postularBg.Controls.Add(btnPostular);
-            postularBg.Location = new Point(576, 96);
+            postularBg.Location = new Point(1328, 80);
             postularBg.Margin = new Padding(3, 4, 3, 4);
             postularBg.Name = "postularBg";
-            postularBg.Size = new Size(172, 48);
+            postularBg.Size = new Size(196, 64);
             postularBg.TabIndex = 40;
             // 
             // btnPostular
             // 
+            btnPostular.BackColor = Color.MediumTurquoise;
             btnPostular.Cursor = Cursors.Hand;
             btnPostular.Dock = DockStyle.Fill;
-            btnPostular.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPostular.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPostular.ForeColor = Color.Snow;
             btnPostular.Location = new Point(0, 0);
             btnPostular.Name = "btnPostular";
-            btnPostular.Size = new Size(172, 48);
+            btnPostular.Size = new Size(196, 64);
             btnPostular.TabIndex = 0;
             btnPostular.Text = "Postular";
             btnPostular.TextAlign = ContentAlignment.MiddleCenter;
@@ -73,22 +75,23 @@
             // 
             // inv_tl_Bg
             // 
-            inv_tl_Bg.BackColor = Color.Salmon;
+            inv_tl_Bg.BackColor = Color.MediumTurquoise;
             inv_tl_Bg.Controls.Add(tituloLbl);
-            inv_tl_Bg.Location = new Point(8, 8);
+            inv_tl_Bg.Location = new Point(16, 16);
             inv_tl_Bg.Margin = new Padding(3, 4, 3, 4);
             inv_tl_Bg.Name = "inv_tl_Bg";
-            inv_tl_Bg.Size = new Size(293, 42);
+            inv_tl_Bg.Size = new Size(392, 56);
             inv_tl_Bg.TabIndex = 21;
             // 
             // tituloLbl
             // 
-            tituloLbl.BackColor = Color.LightSalmon;
+            tituloLbl.BackColor = Color.MediumTurquoise;
             tituloLbl.Dock = DockStyle.Fill;
-            tituloLbl.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tituloLbl.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold);
+            tituloLbl.ForeColor = Color.Snow;
             tituloLbl.Location = new Point(0, 0);
             tituloLbl.Name = "tituloLbl";
-            tituloLbl.Size = new Size(293, 42);
+            tituloLbl.Size = new Size(392, 56);
             tituloLbl.TabIndex = 0;
             tituloLbl.Text = "  Eventos";
             tituloLbl.TextAlign = ContentAlignment.MiddleLeft;
@@ -114,7 +117,7 @@
             dgvEventos02.AllowUserToResizeColumns = false;
             dgvEventos02.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvEventos02.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvEventos02.BackgroundColor = Color.White;
+            dgvEventos02.BackgroundColor = Color.LightCyan;
             dgvEventos02.BorderStyle = BorderStyle.None;
             dgvEventos02.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -131,18 +134,19 @@
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.DarkSalmon;
+            dataGridViewCellStyle2.SelectionBackColor = Color.MediumTurquoise;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvEventos02.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEventos02.EnableHeadersVisualStyles = false;
             dgvEventos02.GridColor = SystemColors.ControlDark;
-            dgvEventos02.Location = new Point(32, 176);
+            dgvEventos02.Location = new Point(48, 176);
             dgvEventos02.Name = "dgvEventos02";
+            dgvEventos02.ReadOnly = true;
             dgvEventos02.RowHeadersVisible = false;
             dgvEventos02.RowHeadersWidth = 51;
             dgvEventos02.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEventos02.Size = new Size(760, 608);
+            dgvEventos02.Size = new Size(1488, 752);
             dgvEventos02.TabIndex = 41;
             dgvEventos02.RowHeaderMouseClick += Tabla_RowHeaderMouseClick;
             // 
@@ -150,8 +154,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(816, 809);
+            BackColor = Color.LightCyan;
+            ClientSize = new Size(1619, 993);
             ContextMenuStrip = popmenu1;
             Controls.Add(dgvEventos02);
             Controls.Add(postularBg);

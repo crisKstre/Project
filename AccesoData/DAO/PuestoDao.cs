@@ -84,6 +84,34 @@ namespace AccesoData.DAO
             }
         }
 
+        public bool ActualizarPuesto(Puesto puesto)
+        {
+            using (SqlConnection conn = GetSqlConnection())
+            {
+                conn.Open();
+                string query = @"UPDATE Puestos
+                         SET NombrePuesto = @NombrePuesto,
+                             Categoria = @Categoria,
+                             Descripcion = @Descripcion,
+                             Estado = @Estado,
+                             Encargado = @Encargado
+                         WHERE IdPuesto = @IdPuesto";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@IdPuesto", puesto.IdPuesto);
+                    cmd.Parameters.AddWithValue("@NombrePuesto", puesto.NombrePuesto);
+                    cmd.Parameters.AddWithValue("@Categoria", puesto.Categoria);
+                    cmd.Parameters.AddWithValue("@Descripcion", puesto.Descripcion);
+                    cmd.Parameters.AddWithValue("@Estado", puesto.Estado);
+                    cmd.Parameters.AddWithValue("@Encargado", puesto.Encargado);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+
 
 
         public DataTable ObtenerPuestosPorFeriante(int idFeriante)

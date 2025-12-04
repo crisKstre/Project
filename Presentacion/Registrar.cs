@@ -1,5 +1,6 @@
 ﻿using AccesoData.DAO;
 using Presentacion;
+using System.Diagnostics;
 
 namespace Presentacion
 {
@@ -69,37 +70,103 @@ namespace Presentacion
             // Validar que no exista el usuario
             if (userDao.UserExists(txtUsuario.Text, txtEmail.Text))
             {
-                MessageBox.Show("El usuario o email ya existen","Error");
+                msgError("El usuario o email ya existen");
+                return;
+            }
+
+            if (txtEmail.Text == "" || txtNombre.Text == "" || txtPass.Text == "" || txtTelefono.Text == "" || txtUsuario.Text == "")
+            {
+                msgError("Por favor, complete todos los campos");
                 return;
             }
 
             // Convertir teléfono a int (con validación)
             if (!int.TryParse(txtTelefono.Text, out int telefono))
             {
-                MessageBox.Show("El teléfono debe ser un número válido","Error");
+                msgError("El teléfono debe ser un número válido");
                 return;
             }
 
-            string posicion = FoA.Checked ? "Feriante" : "Agrupacion";
+            if (cbAgrupacion.Checked)
+            {
+                string posicion = "Agrupacion";
 
-            bool success = userDao.Register(
+                bool success = userDao.Register(
                 txtNombre.Text,    // Nombre
                 txtUsuario.Text,   // LoginNombre
                 txtEmail.Text,     // Email
                 txtPass.Text,      // Pass
                 telefono,          // Telefono
                 posicion           // Nuevo parámetro
-            );
+                );
 
-            if (success)
-            {
-                MessageBox.Show("Usuario registrado exitosamente","Proceso completado!");
-                this.Close();
+                if (success)
+                {
+                    MessageBox.Show("Usuario registrado exitosamente", "Proceso completado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    msgError("Error al registrar usuario");
+                }
+
             }
-            else
+
+            if (cbFeriante.Checked)
             {
-                MessageBox.Show("Error al registrar usuario","Error al completar el proceso!");
+                string posicion = "Feriante";
+
+                bool success = userDao.Register(
+                txtNombre.Text,    // Nombre
+                txtUsuario.Text,   // LoginNombre
+                txtEmail.Text,     // Email
+                txtPass.Text,      // Pass
+                telefono,          // Telefono
+                posicion           // Nuevo parámetro
+                );
+
+                if (success)
+                {
+                    MessageBox.Show("Usuario registrado exitosamente", "Proceso completado!");
+                    this.Close();
+                }
+                else
+                {
+                    msgError("Error al registrar usuario");
+                }
+
             }
+
+
+
+        }
+
+        private void cbAgrupacion_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAgrupacion.Checked)
+            {
+                cbFeriante.Checked = false;
+            }
+        }
+
+        private void cbFeriante_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbFeriante.Checked)
+            {
+                cbAgrupacion.Checked = false;
+            }
+        }
+
+        private void msgError(string msg)
+        {
+            errorLbl.Text = "     " + msg;
+            errorLbl.Visible = true;
+            Debug.WriteLine(msg);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
