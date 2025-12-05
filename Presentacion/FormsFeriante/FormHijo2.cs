@@ -60,7 +60,6 @@ namespace Tienda.Forms
             dgvEventos02.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
-            // {Opcional} personalizar columnas
             dgvEventos02.Columns["IdEvento"].Visible = false;
             dgvEventos02.Columns["Nombre"].HeaderText = "Nombre del Evento";
             dgvEventos02.Columns["Tipo"].HeaderText = "Tipo";
@@ -71,6 +70,7 @@ namespace Tienda.Forms
             dgvEventos02.Columns["PrecioEntrada"].HeaderText = "Precio";
             dgvEventos02.Columns["Descripcion"].HeaderText = "Descripción";
             dgvEventos02.Columns["NombreAgrupacion"].HeaderText = "Agrupación Organizadora";
+
         }
 
         private void FormHijo2_Load(object sender, EventArgs e)
@@ -89,10 +89,8 @@ namespace Tienda.Forms
             int idEvento = Convert.ToInt32(dgvEventos02.SelectedRows[0].Cells["IdEvento"].Value);
             int idUsuario = UserLoginCache.idUsuario;
 
-            // Obtener la fecha de fin del evento desde el DataGridView
             DateTime fechaFin = Convert.ToDateTime(dgvEventos02.SelectedRows[0].Cells["FechaFin"].Value);
 
-            // Verificar si el evento ya terminó
             if (fechaFin < DateTime.Now.Date)
             {
                 MessageBox.Show("No puedes postularte a un evento que ya ha finalizado o esta en curso.", "Aviso", MessageBoxButtons.OK);
@@ -113,7 +111,7 @@ namespace Tienda.Forms
 
             if (puestos.Count == 0)
             {
-                MessageBox.Show("No tienes puestos registrados. Crea uno antes de postular.");
+                MessageBox.Show("No tienes puestos registrados. Crea uno antes de postular.","Aviso");
                 return;
             }
 
@@ -141,5 +139,37 @@ namespace Tienda.Forms
                 MessageBox.Show("Ocurrió un error al registrar la postulación.", "Error");
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string nombreEvento = txtNombreEvento.Text.Trim();
+            string nombreAgrupacion = txtNombreAgrupacion.Text.Trim();
+
+            if (string.IsNullOrEmpty(nombreEvento) && string.IsNullOrEmpty(nombreAgrupacion))
+            {
+                MessageBox.Show("Ingresa al menos un campo para buscar.", "Aviso");
+                return;
+            }
+
+            EventoService service = new EventoService();
+            DataTable tablaEventos = null;
+
+            if (!string.IsNullOrEmpty(nombreEvento) && !string.IsNullOrEmpty(nombreAgrupacion))
+            {
+                tablaEventos = service.BuscarEventos(nombreAgrupacion, nombreEvento);
+            }
+            else if (!string.IsNullOrEmpty(nombreEvento))
+            {
+                tablaEventos = service.BuscarEventosConNombre(nombreEvento);
+            }
+            else 
+            {
+                tablaEventos = service.BuscarEventoConAgrupacion(nombreAgrupacion);
+            }
+
+            dgvEventos02.DataSource = tablaEventos ?? new DataTable();
+
+            txtNombreEvento.Clear();
+            txtNombreAgrupacion.Clear();
+        }
     }
 }

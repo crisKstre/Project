@@ -82,6 +82,7 @@ namespace Presentacion
         {
             CargarInfoUsuario();
             AjustarAEscritorioDisponible();
+            label3.Text = "Bienvenido, " + UserLoginCache.Nombre;
         }
 
         private void CargarInfoUsuario()

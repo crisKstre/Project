@@ -48,6 +48,20 @@ namespace Dominio.Servicios
             return eventoDao.EliminarEvento(idEvento);
         }
 
+        public DataTable BuscarEventosConNombre(string nombreEvento)
+        {
+            return eventoDao.BuscarEventosNombre(nombreEvento);
+        }
+
+        public DataTable BuscarEventoConAgrupacion(string nombreAgrupacion)
+        {
+            return eventoDao.BuscarEventosNombreAgrupacion(nombreAgrupacion);
+        }
+
+        public DataTable BuscarEventos(string nombreAgrupacion, string nombreEvento)
+        {
+            return eventoDao.BuscarEventos(nombreAgrupacion, nombreEvento);
+        }
 
     }
 }

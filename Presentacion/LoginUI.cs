@@ -88,7 +88,7 @@ namespace Presentacion
                         {
                             var mainmenu = new FormsAgrupacion.FormPrincipalAgrupacion();
                             this.ParentForm.Hide();
-                            mainmenu.FormClosed += (s, args) => this.ParentForm.Close();
+                            mainmenu.FormClosed += (s, args) => this.ParentForm.Hide();
                             mainmenu.Show();
                         }
                         else if (UserLoginCache.Posicion == TipoUsuario.Feriante)

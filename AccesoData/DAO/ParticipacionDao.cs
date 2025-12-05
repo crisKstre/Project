@@ -70,7 +70,8 @@ namespace AccesoData.DAO
                     FROM Participacion P
                     INNER JOIN Evento E ON P.IdEvento = E.IdEvento
                     INNER JOIN Agrupacion A ON E.IdAgrupacion = A.IdAgrupacion  
-                    WHERE P.IdUsuario = @IdUsuario";
+                    WHERE P.IdUsuario = @IdUsuario
+                    ORDER BY E.FechaInicio DESC";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {

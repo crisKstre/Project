@@ -20,6 +20,8 @@ namespace Presentacion.FormsAgrupacion
         }
 
         private Button currentButton;
+        private bool isLoggingOut = false;
+
 
 
         private void ActivateButton(object btnSender)
@@ -29,11 +31,10 @@ namespace Presentacion.FormsAgrupacion
                 if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
-                    Color color = Color.LightSalmon;
+                    Color color = Color.MediumTurquoise;
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
-                    currentButton.Font = new System.Drawing.Font("Leelawadee", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }
@@ -44,10 +45,8 @@ namespace Presentacion.FormsAgrupacion
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
-                    previousBtn.BackColor = Color.PaleGreen;
-                    previousBtn.ForeColor = Color.Black;
-                    previousBtn.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
+                    previousBtn.BackColor = Color.DarkSlateGray;
+                    previousBtn.ForeColor = Color.Snow;
                 }
             }
         }
@@ -69,38 +68,11 @@ namespace Presentacion.FormsAgrupacion
             childForm.BringToFront();
             childForm.Show();
         }
-
-        private LinkLabel? currentLinkLabel = null;
-        private void ActivateLinkLabel(object lblSender)
-        {
-            if (lblSender != null)
-            {
-                // guardamos la referencia, sin cambios visuales
-                currentLinkLabel = (LinkLabel)lblSender;
-                DisableButton();
-            }
-        }
-        private void OpenChildFormLink(Form childForm, object lblSender)
-        {
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            ActivateLinkLabel(lblSender);
-            currentChildForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.AgrupacionPnl.Controls.Add(childForm);
-            this.AgrupacionPnl.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
-
-
         private void FormPrincipalAgrupacion_Load(object sender, EventArgs e)
         {
             CargarInfoUsuario();
+            AjustarAEscritorioDisponible();
+            label3.Text = "Bienvenido, " + UserLoginCache.LoginNombre;
         }
 
         private void CargarInfoUsuario()
@@ -110,19 +82,40 @@ namespace Presentacion.FormsAgrupacion
             PosicionLbl.Text = UserLoginCache.Posicion;
         }
 
-        private void EventosBtn_Click(object sender, EventArgs e)
+
+        private void AjustarAEscritorioDisponible()
+        {
+            Rectangle areaTrabajo = Screen.PrimaryScreen.WorkingArea;
+
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(areaTrabajo.Left, areaTrabajo.Top);
+            this.Size = new Size(areaTrabajo.Width, areaTrabajo.Height);
+        }
+
+        private void btnCerrarSesion_Click_1(object sender, EventArgs e)
+        {
+            isLoggingOut = true;
+            Form mainmenu = new Login();
+            mainmenu.Show();
+            this.Close();
+        }
+
+        private void FormPrincipalAgrupacion_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!isLoggingOut)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormPerfilAgrupacion(), sender);
+        }
+
+        private void eventosBtn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormEventos(), sender);
-        }
-
-        private void PerfilLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            OpenChildFormLink(new FormPerfilAgrupacion(), sender);
-        }
-
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

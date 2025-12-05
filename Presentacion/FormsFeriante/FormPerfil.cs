@@ -276,6 +276,13 @@ namespace Presentacion.FormsFeriante
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+
+            if (txtCategoria.Text == "" || txtDescripcion.Text == "" || txtNombrePuesto.Text == "")
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Atención");
+                return;
+            }
+
             Puesto puesto = new Puesto()
             {
                 IdPuesto = Convert.ToInt32(dgvPuestos.SelectedRows[0].Cells["IdPuesto"].Value),

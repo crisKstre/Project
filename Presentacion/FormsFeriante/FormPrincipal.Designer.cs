@@ -175,6 +175,7 @@
             Controls.Add(sidePnl);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             MaximumSize = new Size(1920, 1040);
             MinimumSize = new Size(1918, 1018);
             Name = "FormPrincipal";

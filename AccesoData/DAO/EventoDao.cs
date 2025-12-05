@@ -158,10 +158,126 @@ namespace AccesoData.DAO
                 e.Descripcion,
                 a.NombreAgrupacion
             FROM Evento e
-            INNER JOIN Agrupacion a ON e.IdAgrupacion = a.IdAgrupacion";
+            INNER JOIN Agrupacion a ON e.IdAgrupacion = a.IdAgrupacion
+            ORDER BY e.FechaInicio DESC";
 
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
+
+        public DataTable BuscarEventosNombre(string nombreEvento)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+
+                string sql = @"
+            SELECT 
+                e.IdEvento,
+                e.Nombre,
+                e.Tipo,
+                e.FechaInicio,
+                e.FechaFin,
+                e.Lugar,
+                e.Cupos,
+                e.PrecioEntrada,
+                e.Descripcion,
+                a.NombreAgrupacion
+            FROM Evento e
+            INNER JOIN Agrupacion a ON e.IdAgrupacion = a.IdAgrupacion
+            WHERE e.Nombre = @NombreEvento
+            ORDER BY e.FechaInicio DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@NombreEvento", nombreEvento);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
+
+        public DataTable BuscarEventosNombreAgrupacion(string nombreAgrupacion)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+
+                string sql = @"
+            SELECT 
+                e.IdEvento,
+                e.Nombre,
+                e.Tipo,
+                e.FechaInicio,
+                e.FechaFin,
+                e.Lugar,
+                e.Cupos,
+                e.PrecioEntrada,
+                e.Descripcion,
+                a.NombreAgrupacion
+            FROM Evento e
+            INNER JOIN Agrupacion a ON e.IdAgrupacion = a.IdAgrupacion
+            WHERE a.NombreAgrupacion = @NombreAgrupacion
+            ORDER BY e.FechaInicio DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@NombreAgrupacion", nombreAgrupacion);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
+
+        public DataTable BuscarEventos(string nombreAgrupacion, string nombreEvento)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+
+                string sql = @"
+            SELECT 
+                e.IdEvento,
+                e.Nombre,
+                e.Tipo,
+                e.FechaInicio,
+                e.FechaFin,
+                e.Lugar,
+                e.Cupos,
+                e.PrecioEntrada,
+                e.Descripcion,
+                a.NombreAgrupacion
+            FROM Evento e
+            INNER JOIN Agrupacion a ON e.IdAgrupacion = a.IdAgrupacion
+            WHERE a.NombreAgrupacion = @NombreAgrupacion AND e.Nombre = @NombreEvento
+            ORDER BY e.FechaInicio DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@NombreAgrupacion", nombreAgrupacion);
+                    cmd.Parameters.AddWithValue("@NombreEvento", nombreEvento);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(tabla);
