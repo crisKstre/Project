@@ -39,7 +39,6 @@
             popmenu1 = new ContextMenuStrip(components);
             reiniciarToolStripMenuItem = new ToolStripMenuItem();
             dgvEventos02 = new DataGridView();
-            toolTip1 = new ToolTip(components);
             panel2 = new Panel();
             txtNombreEvento = new TextBox();
             panel1 = new Panel();
@@ -111,12 +110,13 @@
             popmenu1.ImageScalingSize = new Size(20, 20);
             popmenu1.Items.AddRange(new ToolStripItem[] { reiniciarToolStripMenuItem });
             popmenu1.Name = "popmenu1";
-            popmenu1.Size = new Size(136, 28);
+            popmenu1.Size = new Size(156, 30);
             // 
             // reiniciarToolStripMenuItem
             // 
+            reiniciarToolStripMenuItem.Font = new Font("Century Gothic", 11F);
             reiniciarToolStripMenuItem.Name = "reiniciarToolStripMenuItem";
-            reiniciarToolStripMenuItem.Size = new Size(135, 24);
+            reiniciarToolStripMenuItem.Size = new Size(155, 26);
             reiniciarToolStripMenuItem.Text = "Reiniciar";
             reiniciarToolStripMenuItem.Click += reiniciarToolStripMenuItem_Click;
             // 
@@ -176,10 +176,9 @@
             txtNombreEvento.BorderStyle = BorderStyle.None;
             txtNombreEvento.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNombreEvento.Location = new Point(80, 128);
-            txtNombreEvento.Multiline = true;
             txtNombreEvento.Name = "txtNombreEvento";
             txtNombreEvento.PlaceholderText = "Nombre del evento";
-            txtNombreEvento.Size = new Size(240, 32);
+            txtNombreEvento.Size = new Size(240, 27);
             txtNombreEvento.TabIndex = 42;
             // 
             // panel1
@@ -196,10 +195,9 @@
             txtNombreAgrupacion.BorderStyle = BorderStyle.None;
             txtNombreAgrupacion.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNombreAgrupacion.Location = new Point(368, 128);
-            txtNombreAgrupacion.Multiline = true;
             txtNombreAgrupacion.Name = "txtNombreAgrupacion";
             txtNombreAgrupacion.PlaceholderText = "Nombre agrupación";
-            txtNombreAgrupacion.Size = new Size(248, 32);
+            txtNombreAgrupacion.Size = new Size(248, 27);
             txtNombreAgrupacion.TabIndex = 44;
             // 
             // btnBuscar
@@ -305,7 +303,6 @@
         private System.Windows.Forms.ContextMenuStrip popmenu1;
         private System.Windows.Forms.ToolStripMenuItem reiniciarToolStripMenuItem;
         private DataGridView dgvEventos02;
-        private ToolTip toolTip1;
         private Panel panel2;
         private TextBox txtNombreEvento;
         private Panel panel1;

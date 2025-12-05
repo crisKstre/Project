@@ -39,6 +39,7 @@
             dgvMisEventos = new DataGridView();
             contextMenuStrip2 = new ContextMenuStrip(components);
             eliminarEventoToolStripMenuItem = new ToolStripMenuItem();
+            revisarPostulacionesToolStripMenuItem = new ToolStripMenuItem();
             reiniciarTablaToolStripMenuItem = new ToolStripMenuItem();
             dgvPostulaciones = new DataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
@@ -137,23 +138,31 @@
             // contextMenuStrip2
             // 
             contextMenuStrip2.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { eliminarEventoToolStripMenuItem, reiniciarTablaToolStripMenuItem });
+            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { revisarPostulacionesToolStripMenuItem, eliminarEventoToolStripMenuItem, reiniciarTablaToolStripMenuItem });
             contextMenuStrip2.Name = "contextMenuStrip2";
-            contextMenuStrip2.Size = new Size(191, 52);
+            contextMenuStrip2.Size = new Size(276, 82);
             // 
             // eliminarEventoToolStripMenuItem
             // 
-            eliminarEventoToolStripMenuItem.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            eliminarEventoToolStripMenuItem.Font = new Font("Century Gothic", 11F);
             eliminarEventoToolStripMenuItem.Name = "eliminarEventoToolStripMenuItem";
-            eliminarEventoToolStripMenuItem.Size = new Size(190, 24);
+            eliminarEventoToolStripMenuItem.Size = new Size(275, 26);
             eliminarEventoToolStripMenuItem.Text = "Eliminar evento";
             eliminarEventoToolStripMenuItem.Click += eliminarEventoToolStripMenuItem_Click;
             // 
+            // revisarPostulacionesToolStripMenuItem
+            // 
+            revisarPostulacionesToolStripMenuItem.Font = new Font("Century Gothic", 11F);
+            revisarPostulacionesToolStripMenuItem.Name = "revisarPostulacionesToolStripMenuItem";
+            revisarPostulacionesToolStripMenuItem.Size = new Size(275, 26);
+            revisarPostulacionesToolStripMenuItem.Text = "Revisar postulaciones";
+            revisarPostulacionesToolStripMenuItem.Click += revisarPostulacionesToolStripMenuItem_Click;
+            // 
             // reiniciarTablaToolStripMenuItem
             // 
-            reiniciarTablaToolStripMenuItem.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            reiniciarTablaToolStripMenuItem.Font = new Font("Century Gothic", 11F);
             reiniciarTablaToolStripMenuItem.Name = "reiniciarTablaToolStripMenuItem";
-            reiniciarTablaToolStripMenuItem.Size = new Size(190, 24);
+            reiniciarTablaToolStripMenuItem.Size = new Size(275, 26);
             reiniciarTablaToolStripMenuItem.Text = "Reiniciar tabla";
             reiniciarTablaToolStripMenuItem.Click += reiniciarTablaToolStripMenuItem_Click;
             // 
@@ -204,13 +213,13 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { reiniciarTablasToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(189, 28);
+            contextMenuStrip1.Size = new Size(218, 30);
             // 
             // reiniciarTablasToolStripMenuItem
             // 
-            reiniciarTablasToolStripMenuItem.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            reiniciarTablasToolStripMenuItem.Font = new Font("Century Gothic", 11F);
             reiniciarTablasToolStripMenuItem.Name = "reiniciarTablasToolStripMenuItem";
-            reiniciarTablasToolStripMenuItem.Size = new Size(188, 24);
+            reiniciarTablasToolStripMenuItem.Size = new Size(217, 26);
             reiniciarTablasToolStripMenuItem.Text = "Reiniciar Tablas";
             reiniciarTablasToolStripMenuItem.Click += reiniciarTablasToolStripMenuItem_Click;
             // 
@@ -467,5 +476,6 @@
         private Panel panel1;
         private Label label4;
         private Label lblTotalPostulaciones;
+        private ToolStripMenuItem revisarPostulacionesToolStripMenuItem;
     }
 }

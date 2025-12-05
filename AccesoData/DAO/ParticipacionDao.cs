@@ -120,6 +120,7 @@ namespace AccesoData.DAO
                     SELECT 
                         p.IdParticipacion,
                         u.Nombre AS Feriante,
+                        u.Telefono,
                         p.NombrePuesto,
                         p.CategoriaPuesto,
                         p.Estado,
@@ -136,6 +137,45 @@ namespace AccesoData.DAO
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@IdAgrupacion", idAgrupacion);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
+
+        public DataTable ObtenerPostulacionesPorEvento(int idEvento)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+
+                string sql = @"
+                    SELECT 
+                        p.IdParticipacion,
+                        u.Nombre AS Feriante,
+                        u.Telefono,
+                        p.NombrePuesto,
+                        p.CategoriaPuesto,
+                        p.Estado,
+                        e.Nombre AS Evento,
+                        e.Lugar,
+                        e.FechaInicio,
+                        e.FechaFin
+                    FROM Participacion p
+                    INNER JOIN Evento e ON p.IdEvento = e.IdEvento
+                    INNER JOIN Usuarios u ON p.IdUsuario = u.IdUsuario
+                    WHERE e.IdEvento = @IdEvento
+                    ORDER BY e.FechaInicio DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdEvento", idEvento);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(tabla);

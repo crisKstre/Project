@@ -34,10 +34,9 @@ namespace Presentacion.FormsAgrupacion
             int idUsuario = UserLoginCache.idUsuario;
             dgvPostulaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPostulaciones.DataSource = participacionService.ObtenerPostulacionesDeAgrupacionPorUsuario(idUsuario);
-            // dgvPostulaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPostulaciones.Columns["IdParticipacion"].Visible = false;
-            dgvPostulaciones.Columns["NombrePuesto"].HeaderText = "Nombre del Puesto";
-            dgvPostulaciones.Columns["CategoriaPuesto"].HeaderText = "Categoria del Puesto";
+            dgvPostulaciones.Columns["NombrePuesto"].HeaderText = "Nombre Puesto";
+            dgvPostulaciones.Columns["CategoriaPuesto"].HeaderText = "Categoria Puesto";
             dgvPostulaciones.Columns["Lugar"].Visible = true;
             dgvPostulaciones.Columns["FechaInicio"].Visible = false;
             dgvPostulaciones.Columns["FechaFin"].Visible = false;
@@ -55,7 +54,7 @@ namespace Presentacion.FormsAgrupacion
             dgvMisEventos.DataSource = EventoService.ObtenerEventosPorAgrupacion();
             dgvMisEventos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMisEventos.Columns["IdEvento"].Visible = false;
-            dgvMisEventos.Columns["Nombre"].HeaderText = "Nombre del Evento";
+            dgvMisEventos.Columns["Nombre"].HeaderText = "Nombre Evento";
             dgvMisEventos.Columns["Tipo"].HeaderText = "Tipo";
             dgvMisEventos.Columns["FechaInicio"].HeaderText = "Inicio";
             dgvMisEventos.Columns["FechaFin"].HeaderText = "Término";
@@ -256,13 +255,27 @@ namespace Presentacion.FormsAgrupacion
             ActualizarSidePanelDesdeDgv();
         }
 
-        private void editarEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void revisarPostulacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(dgvMisEventos.SelectedRows.Count == 0)
+
+            if (dgvMisEventos.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Selecciona un evento para editar.");
+                MessageBox.Show("Selecciona un evento para eliminar.");
                 return;
             }
+
+            int idEvento = Convert.ToInt32(dgvMisEventos.SelectedRows[0].Cells["IdEvento"].Value);
+            string nombreEvento = dgvMisEventos.SelectedRows[0].Cells["Nombre"].Value.ToString();
+
+            dgvPostulaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPostulaciones.DataSource = participacionService.ObtenerParticipacionEvento(idEvento);
+            dgvPostulaciones.Columns["IdParticipacion"].Visible = false;
+            dgvPostulaciones.Columns["NombrePuesto"].HeaderText = "Nombre Puesto";
+            dgvPostulaciones.Columns["CategoriaPuesto"].HeaderText = "Categoria Puesto";
+            dgvPostulaciones.Columns["Lugar"].Visible = true;
+            dgvPostulaciones.Columns["FechaInicio"].Visible = false;
+            dgvPostulaciones.Columns["FechaFin"].Visible = false;
+
         }
     }
 }

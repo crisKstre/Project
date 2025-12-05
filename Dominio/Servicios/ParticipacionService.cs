@@ -27,7 +27,10 @@ namespace Dominio.Servicios
             return participacionDao.ObtenerPostulacionesPorAgrupacion(idUsuario);
         }
 
-
+        public DataTable ObtenerParticipacionEvento(int idEvento)
+        {
+            return participacionDao.ObtenerPostulacionesPorEvento(idEvento);
+        }
 
     }
 }

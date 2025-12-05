@@ -232,10 +232,9 @@
             txtNombre.BorderStyle = BorderStyle.None;
             txtNombre.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNombre.Location = new Point(200, 136);
-            txtNombre.Multiline = true;
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Nombre del evento";
-            txtNombre.Size = new Size(240, 32);
+            txtNombre.Size = new Size(240, 27);
             txtNombre.TabIndex = 44;
             // 
             // panel3
@@ -253,10 +252,9 @@
             txtCupos.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCupos.Location = new Point(200, 232);
             txtCupos.MaxLength = 4;
-            txtCupos.Multiline = true;
             txtCupos.Name = "txtCupos";
             txtCupos.PlaceholderText = "Cupos";
-            txtCupos.Size = new Size(240, 32);
+            txtCupos.Size = new Size(240, 27);
             txtCupos.TabIndex = 48;
             txtCupos.KeyPress += txtSoloNumeros_KeyPress;
             // 
@@ -275,10 +273,9 @@
             txtPrecio.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPrecio.Location = new Point(656, 232);
             txtPrecio.MaxLength = 8;
-            txtPrecio.Multiline = true;
             txtPrecio.Name = "txtPrecio";
             txtPrecio.PlaceholderText = "Precio entrada";
-            txtPrecio.Size = new Size(240, 32);
+            txtPrecio.Size = new Size(240, 27);
             txtPrecio.TabIndex = 50;
             txtPrecio.KeyPress += txtSoloNumeros_KeyPress;
             // 

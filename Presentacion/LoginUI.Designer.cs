@@ -137,10 +137,9 @@
             txtUsuario.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsuario.ForeColor = Color.Black;
             txtUsuario.Location = new Point(96, 156);
-            txtUsuario.Multiline = true;
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = " Nombre de Usuario";
-            txtUsuario.Size = new Size(391, 32);
+            txtUsuario.Size = new Size(391, 27);
             txtUsuario.TabIndex = 10;
             // 
             // linkLabel1

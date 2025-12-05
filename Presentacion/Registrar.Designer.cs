@@ -222,10 +222,9 @@
             txtNombre.BorderStyle = BorderStyle.None;
             txtNombre.Font = new Font("Century Gothic", 13.2000008F);
             txtNombre.Location = new Point(32, 192);
-            txtNombre.Multiline = true;
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Nombre Personal";
-            txtNombre.Size = new Size(320, 32);
+            txtNombre.Size = new Size(320, 27);
             txtNombre.TabIndex = 9;
             // 
             // btnRegistrar
@@ -262,10 +261,9 @@
             txtTelefono.BorderStyle = BorderStyle.None;
             txtTelefono.Font = new Font("Century Gothic", 13.2000008F);
             txtTelefono.Location = new Point(32, 384);
-            txtTelefono.Multiline = true;
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PlaceholderText = "Télefono";
-            txtTelefono.Size = new Size(320, 32);
+            txtTelefono.Size = new Size(320, 27);
             txtTelefono.TabIndex = 17;
             // 
             // txtPass
@@ -274,6 +272,7 @@
             txtPass.BorderStyle = BorderStyle.None;
             txtPass.Font = new Font("Century Gothic", 13.2000008F);
             txtPass.Location = new Point(416, 288);
+            txtPass.Multiline = true;
             txtPass.Name = "txtPass";
             txtPass.PlaceholderText = "Contraseña";
             txtPass.Size = new Size(320, 27);
@@ -286,10 +285,9 @@
             txtUsuario.BorderStyle = BorderStyle.None;
             txtUsuario.Font = new Font("Century Gothic", 13.2000008F);
             txtUsuario.Location = new Point(416, 192);
-            txtUsuario.Multiline = true;
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = "Nombre cuenta / Agrupacion";
-            txtUsuario.Size = new Size(320, 32);
+            txtUsuario.Size = new Size(320, 27);
             txtUsuario.TabIndex = 11;
             // 
             // txtEmail
@@ -298,10 +296,9 @@
             txtEmail.BorderStyle = BorderStyle.None;
             txtEmail.Font = new Font("Century Gothic", 13.2000008F);
             txtEmail.Location = new Point(32, 288);
-            txtEmail.Multiline = true;
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Email";
-            txtEmail.Size = new Size(320, 32);
+            txtEmail.Size = new Size(320, 27);
             txtEmail.TabIndex = 13;
             // 
             // Registrar

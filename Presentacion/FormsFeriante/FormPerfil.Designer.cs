@@ -93,10 +93,9 @@
             txtNombrePuesto.BorderStyle = BorderStyle.None;
             txtNombrePuesto.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNombrePuesto.Location = new Point(72, 160);
-            txtNombrePuesto.Multiline = true;
             txtNombrePuesto.Name = "txtNombrePuesto";
             txtNombrePuesto.PlaceholderText = "Nombre de puesto";
-            txtNombrePuesto.Size = new Size(224, 32);
+            txtNombrePuesto.Size = new Size(224, 27);
             txtNombrePuesto.TabIndex = 1;
             // 
             // txtCategoria
@@ -105,10 +104,9 @@
             txtCategoria.BorderStyle = BorderStyle.None;
             txtCategoria.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCategoria.Location = new Point(344, 160);
-            txtCategoria.Multiline = true;
             txtCategoria.Name = "txtCategoria";
             txtCategoria.PlaceholderText = "Categoria";
-            txtCategoria.Size = new Size(224, 32);
+            txtCategoria.Size = new Size(224, 27);
             txtCategoria.TabIndex = 3;
             // 
             // txtDescripcion
@@ -117,10 +115,9 @@
             txtDescripcion.BorderStyle = BorderStyle.None;
             txtDescripcion.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtDescripcion.Location = new Point(608, 160);
-            txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.PlaceholderText = "Descripción";
-            txtDescripcion.Size = new Size(224, 32);
+            txtDescripcion.Size = new Size(224, 27);
             txtDescripcion.TabIndex = 5;
             // 
             // dgvPuestos
@@ -169,28 +166,29 @@
             contextMenuStrip2.ImageScalingSize = new Size(20, 20);
             contextMenuStrip2.Items.AddRange(new ToolStripItem[] { editarPuestoToolStripMenuItem, eliminarPuestoToolStripMenuItem, reiniciarTablaToolStripMenuItem });
             contextMenuStrip2.Name = "contextMenuStrip2";
-            contextMenuStrip2.Size = new Size(186, 76);
+            contextMenuStrip2.Size = new Size(213, 82);
             // 
             // editarPuestoToolStripMenuItem
             // 
+            editarPuestoToolStripMenuItem.Font = new Font("Century Gothic", 11F);
             editarPuestoToolStripMenuItem.Name = "editarPuestoToolStripMenuItem";
-            editarPuestoToolStripMenuItem.Size = new Size(185, 24);
+            editarPuestoToolStripMenuItem.Size = new Size(212, 26);
             editarPuestoToolStripMenuItem.Text = "Editar Puesto";
             editarPuestoToolStripMenuItem.Click += editarPuestoToolStripMenuItem_Click;
             // 
             // eliminarPuestoToolStripMenuItem
             // 
-            eliminarPuestoToolStripMenuItem.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            eliminarPuestoToolStripMenuItem.Font = new Font("Century Gothic", 11F);
             eliminarPuestoToolStripMenuItem.Name = "eliminarPuestoToolStripMenuItem";
-            eliminarPuestoToolStripMenuItem.Size = new Size(185, 24);
+            eliminarPuestoToolStripMenuItem.Size = new Size(212, 26);
             eliminarPuestoToolStripMenuItem.Text = "Eliminar Puesto";
             eliminarPuestoToolStripMenuItem.Click += eliminarPuestoToolStripMenuItem_Click;
             // 
             // reiniciarTablaToolStripMenuItem
             // 
-            reiniciarTablaToolStripMenuItem.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            reiniciarTablaToolStripMenuItem.Font = new Font("Century Gothic", 11F);
             reiniciarTablaToolStripMenuItem.Name = "reiniciarTablaToolStripMenuItem";
-            reiniciarTablaToolStripMenuItem.Size = new Size(185, 24);
+            reiniciarTablaToolStripMenuItem.Size = new Size(212, 26);
             reiniciarTablaToolStripMenuItem.Text = "Reiniciar Tabla";
             reiniciarTablaToolStripMenuItem.Click += reiniciarTablaToolStripMenuItem_Click;
             // 
@@ -199,13 +197,13 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { reiniciaToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(189, 28);
+            contextMenuStrip1.Size = new Size(218, 30);
             // 
             // reiniciaToolStripMenuItem
             // 
-            reiniciaToolStripMenuItem.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            reiniciaToolStripMenuItem.Font = new Font("Century Gothic", 11F);
             reiniciaToolStripMenuItem.Name = "reiniciaToolStripMenuItem";
-            reiniciaToolStripMenuItem.Size = new Size(188, 24);
+            reiniciaToolStripMenuItem.Size = new Size(217, 26);
             reiniciaToolStripMenuItem.Text = "Reiniciar Tablas";
             reiniciaToolStripMenuItem.Click += reiniciaToolStripMenuItem_Click;
             // 
