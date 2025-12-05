@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timer = System.Windows.Forms.Timer;
+
 
 namespace Presentacion.FormsFeriante
 {
@@ -23,7 +25,7 @@ namespace Presentacion.FormsFeriante
         {
             if (txtCategoria.Text == "" || txtDescripcion.Text == "" || txtNombrePuesto.Text == "")
             {
-                MessageBox.Show("Por favor, complete todos los campos.", "Atención");
+                MostrarMensajeTemporal("Por favor, complete todos los campos.", 6000);
                 return;
             }
             PuestoService service = new PuestoService();
@@ -40,7 +42,7 @@ namespace Presentacion.FormsFeriante
             int idGenerado = service.RegistrarPuesto(nuevoPuesto);
             if (idGenerado > 0)
             {
-                MessageBox.Show("Puesto registrado correctamente.", "Éxito");
+                MessageBox.Show("Puesto registrado correctamente.", "Éxito",MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarPuestos(); // actualiza el DataGridView
                 txtNombrePuesto.Clear();
                 txtCategoria.Clear();
@@ -150,9 +152,9 @@ namespace Presentacion.FormsFeriante
 
                 if (exito)
                 {
-                    MessageBox.Show("Puesto eliminado correctamente.", "Éxito");
-                    CargarPuestos(); // refresca el grid
-                    CargarPostulaciones(); // refresca las postulaciones
+                    MessageBox.Show("Puesto eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarPuestos(); 
+                    CargarPostulaciones(); 
                 }
                 else
                 {
@@ -161,7 +163,6 @@ namespace Presentacion.FormsFeriante
             }
         }
 
-        // Llamar esto cada vez que el dgvPostulaciones cambie de datos
         private void ActualizarSidePanelDesdeDgv()
         {
             // Si no hay filas, limpiar
@@ -279,7 +280,7 @@ namespace Presentacion.FormsFeriante
 
             if (txtCategoria.Text == "" || txtDescripcion.Text == "" || txtNombrePuesto.Text == "")
             {
-                MessageBox.Show("Por favor, complete todos los campos.", "Atención");
+                MostrarMensajeTemporal("Por favor, complete todos los campos.",6000);
                 return;
             }
 
@@ -297,7 +298,7 @@ namespace Presentacion.FormsFeriante
 
             if (service.ActualizarPuesto(puesto))
             {
-                MessageBox.Show("Puesto actualizado correctamente.","Edición completada",MessageBoxButtons.OK);
+                MessageBox.Show("Puesto actualizado correctamente.","Edición completada",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 CargarPuestos();
                 btnEditar.Hide();
                 btnEditar.Enabled = false;
@@ -312,5 +313,22 @@ namespace Presentacion.FormsFeriante
                 MessageBox.Show("Error al actualizar el puesto.");
             }
         }
+
+        private void MostrarMensajeTemporal(string mensaje, int milisegundos)
+        {
+            errorLbl.Text = "     " + mensaje;
+            errorLbl.Visible = true;
+
+            Timer timer = new Timer();
+            timer.Interval = milisegundos;
+            timer.Tick += (s, e) =>
+            {
+                errorLbl.Visible = false;
+                timer.Stop();
+                timer.Dispose();
+            };
+            timer.Start();
+        }
+
     }
 }

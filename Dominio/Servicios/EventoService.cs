@@ -58,9 +58,14 @@ namespace Dominio.Servicios
             return eventoDao.BuscarEventosNombreAgrupacion(nombreAgrupacion);
         }
 
-        public DataTable BuscarEventos(string nombreAgrupacion, string nombreEvento)
+        public DataTable BuscarEventoLugar(string Lugar)
         {
-            return eventoDao.BuscarEventos(nombreAgrupacion, nombreEvento);
+            return eventoDao.BuscarEventosLugar(Lugar);
+        }
+
+        public DataTable BuscarEventos(string nombreAgrupacion, string nombreEvento, string Lugar)
+        {
+            return eventoDao.BuscarEventos(nombreAgrupacion, nombreEvento, Lugar);
         }
 
     }

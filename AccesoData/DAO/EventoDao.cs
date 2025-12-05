@@ -249,7 +249,7 @@ namespace AccesoData.DAO
             return tabla;
         }
 
-        public DataTable BuscarEventos(string nombreAgrupacion, string nombreEvento)
+        public DataTable BuscarEventosLugar(string Lugar)
         {
             DataTable tabla = new DataTable();
 
@@ -271,13 +271,52 @@ namespace AccesoData.DAO
                 a.NombreAgrupacion
             FROM Evento e
             INNER JOIN Agrupacion a ON e.IdAgrupacion = a.IdAgrupacion
-            WHERE a.NombreAgrupacion = @NombreAgrupacion AND e.Nombre = @NombreEvento
+            WHERE e.Lugar = @Lugar
+            ORDER BY e.FechaInicio DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@Lugar", Lugar);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
+
+        public DataTable BuscarEventos(string nombreAgrupacion, string nombreEvento, string Lugar)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection con = GetSqlConnection())
+            {
+                con.Open();
+
+                string sql = @"
+            SELECT 
+                e.IdEvento,
+                e.Nombre,
+                e.Tipo,
+                e.FechaInicio,
+                e.FechaFin,
+                e.Lugar,
+                e.Cupos,
+                e.PrecioEntrada,
+                e.Descripcion,
+                a.NombreAgrupacion
+            FROM Evento e
+            INNER JOIN Agrupacion a ON e.IdAgrupacion = a.IdAgrupacion
+            WHERE a.NombreAgrupacion = @NombreAgrupacion AND e.Nombre = @NombreEvento AND e.Lugar = @Lugar
             ORDER BY e.FechaInicio DESC";
 
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@NombreAgrupacion", nombreAgrupacion);
                     cmd.Parameters.AddWithValue("@NombreEvento", nombreEvento);
+                    cmd.Parameters.AddWithValue("@Lugar", Lugar);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(tabla);

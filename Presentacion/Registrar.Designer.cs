@@ -167,7 +167,7 @@
             groupBox1.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(416, 352);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(320, 96);
+            groupBox1.Size = new Size(320, 112);
             groupBox1.TabIndex = 23;
             groupBox1.TabStop = false;
             groupBox1.Text = "Rol";
@@ -188,7 +188,7 @@
             // 
             cbFeriante.AutoSize = true;
             cbFeriante.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbFeriante.Location = new Point(32, 64);
+            cbFeriante.Location = new Point(32, 72);
             cbFeriante.Name = "cbFeriante";
             cbFeriante.Size = new Size(110, 27);
             cbFeriante.TabIndex = 22;
@@ -274,10 +274,9 @@
             txtPass.BorderStyle = BorderStyle.None;
             txtPass.Font = new Font("Century Gothic", 13.2000008F);
             txtPass.Location = new Point(416, 288);
-            txtPass.Multiline = true;
             txtPass.Name = "txtPass";
             txtPass.PlaceholderText = "Contraseña";
-            txtPass.Size = new Size(320, 32);
+            txtPass.Size = new Size(320, 27);
             txtPass.TabIndex = 15;
             txtPass.UseSystemPasswordChar = true;
             // 

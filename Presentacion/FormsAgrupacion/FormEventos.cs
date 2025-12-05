@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
@@ -13,6 +14,8 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timer = System.Windows.Forms.Timer;
+
 
 namespace Presentacion.FormsAgrupacion
 {
@@ -27,7 +30,7 @@ namespace Presentacion.FormsAgrupacion
         {
             if (txtNombre.Text == "" || txtLugar.Text == "Lugar" || txtDescripcion.Text == "" || txtCupos.Text == "" || txtPrecio.Text == "")
             {
-                MessageBox.Show("Por favor, complete todos los campos.", "Atención", MessageBoxButtons.OK);
+                MostrarMensajeTemporal("Por favor, complete todos los campos.",6000);
                 return;
             }
 
@@ -36,9 +39,7 @@ namespace Presentacion.FormsAgrupacion
 
             if (fechaInicio > fechaTermino)
             {
-                MessageBox.Show("La fecha de inicio debe ser anterior a la fecha de término.",
-                                "Fechas inválidas",
-                                MessageBoxButtons.OK);
+                MostrarMensajeTemporal("La fecha de inicio debe ser anterior a la fecha de término.",6000);
                 return;
             }
             try
@@ -87,7 +88,7 @@ namespace Presentacion.FormsAgrupacion
 
                 if (idGenerado > 0)
                 {
-                    MessageBox.Show($"Evento creado con éxito. ID generado: {idGenerado}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Evento creado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtCupos.Clear();
                     txtDescripcion.Clear();
                     txtNombre.Clear();
@@ -104,6 +105,7 @@ namespace Presentacion.FormsAgrupacion
                 MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             CargarEventosAgrupacion();
+            errorLbl.Hide();
 
 
         }
@@ -132,6 +134,8 @@ namespace Presentacion.FormsAgrupacion
             CargarPlazas();
             txtLugar.SelectedIndexChanged += txtLugar_SelectedIndexChanged;
             txtLugar.Validating += txtLugar_Validating;
+            txtLugar.SelectedIndex = -1;
+
         }
 
         private void FechaInicioLbl_Click(object svender, EventArgs e)
@@ -257,5 +261,21 @@ namespace Presentacion.FormsAgrupacion
             comboTipoEvento.SelectedIndex = 0; 
 
         }
+        private void MostrarMensajeTemporal(string mensaje, int milisegundos)
+        {
+            errorLbl.Text = "     " + mensaje;
+            errorLbl.Visible = true;
+
+            Timer timer = new Timer();
+            timer.Interval = milisegundos;
+            timer.Tick += (s, e) =>
+            {
+                errorLbl.Visible = false;
+                timer.Stop();
+                timer.Dispose();
+            };
+            timer.Start();
+        }
+
     }
 }

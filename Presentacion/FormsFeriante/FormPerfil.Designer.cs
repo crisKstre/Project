@@ -73,6 +73,7 @@
             panel8 = new Panel();
             panel9 = new Panel();
             btnEditar = new Button();
+            errorLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPuestos).BeginInit();
             contextMenuStrip2.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
@@ -91,7 +92,7 @@
             txtNombrePuesto.BackColor = Color.LightCyan;
             txtNombrePuesto.BorderStyle = BorderStyle.None;
             txtNombrePuesto.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNombrePuesto.Location = new Point(72, 176);
+            txtNombrePuesto.Location = new Point(72, 160);
             txtNombrePuesto.Multiline = true;
             txtNombrePuesto.Name = "txtNombrePuesto";
             txtNombrePuesto.PlaceholderText = "Nombre de puesto";
@@ -103,7 +104,7 @@
             txtCategoria.BackColor = Color.LightCyan;
             txtCategoria.BorderStyle = BorderStyle.None;
             txtCategoria.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCategoria.Location = new Point(344, 176);
+            txtCategoria.Location = new Point(344, 160);
             txtCategoria.Multiline = true;
             txtCategoria.Name = "txtCategoria";
             txtCategoria.PlaceholderText = "Categoria";
@@ -115,7 +116,7 @@
             txtDescripcion.BackColor = Color.LightCyan;
             txtDescripcion.BorderStyle = BorderStyle.None;
             txtDescripcion.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDescripcion.Location = new Point(608, 176);
+            txtDescripcion.Location = new Point(608, 160);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.PlaceholderText = "Descripción";
@@ -146,7 +147,7 @@
             dgvPuestos.Cursor = Cursors.Hand;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.LightCyan;
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = Color.MediumTurquoise;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -160,7 +161,7 @@
             dgvPuestos.RowHeadersVisible = false;
             dgvPuestos.RowHeadersWidth = 51;
             dgvPuestos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPuestos.Size = new Size(896, 160);
+            dgvPuestos.Size = new Size(896, 216);
             dgvPuestos.TabIndex = 6;
             // 
             // contextMenuStrip2
@@ -212,7 +213,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(72, 480);
+            label4.Location = new Point(80, 528);
             label4.Name = "label4";
             label4.Size = new Size(261, 27);
             label4.TabIndex = 8;
@@ -266,7 +267,7 @@
             dgvPostulaciones.Cursor = Cursors.Hand;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.LightCyan;
-            dataGridViewCellStyle4.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle4.SelectionBackColor = Color.CadetBlue;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
@@ -274,13 +275,13 @@
             dgvPostulaciones.DefaultCellStyle = dataGridViewCellStyle4;
             dgvPostulaciones.EnableHeadersVisualStyles = false;
             dgvPostulaciones.GridColor = Color.CadetBlue;
-            dgvPostulaciones.Location = new Point(72, 512);
+            dgvPostulaciones.Location = new Point(72, 560);
             dgvPostulaciones.Name = "dgvPostulaciones";
             dgvPostulaciones.ReadOnly = true;
             dgvPostulaciones.RowHeadersVisible = false;
             dgvPostulaciones.RowHeadersWidth = 51;
             dgvPostulaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPostulaciones.Size = new Size(896, 424);
+            dgvPostulaciones.Size = new Size(896, 376);
             dgvPostulaciones.TabIndex = 7;
             // 
             // btnRegistrarPuesto
@@ -291,7 +292,7 @@
             btnRegistrarPuesto.FlatStyle = FlatStyle.Flat;
             btnRegistrarPuesto.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistrarPuesto.ForeColor = Color.Snow;
-            btnRegistrarPuesto.Location = new Point(864, 160);
+            btnRegistrarPuesto.Location = new Point(864, 144);
             btnRegistrarPuesto.Margin = new Padding(3, 4, 3, 4);
             btnRegistrarPuesto.Name = "btnRegistrarPuesto";
             btnRegistrarPuesto.Size = new Size(184, 59);
@@ -348,7 +349,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(72, 120);
+            label1.Location = new Point(72, 104);
             label1.Name = "label1";
             label1.Size = new Size(189, 27);
             label1.TabIndex = 26;
@@ -357,7 +358,7 @@
             // panel2
             // 
             panel2.BackColor = Color.LightGray;
-            panel2.Location = new Point(64, 208);
+            panel2.Location = new Point(64, 192);
             panel2.Name = "panel2";
             panel2.Size = new Size(235, 1);
             panel2.TabIndex = 27;
@@ -365,7 +366,7 @@
             // panel3
             // 
             panel3.BackColor = Color.LightGray;
-            panel3.Location = new Point(336, 208);
+            panel3.Location = new Point(336, 192);
             panel3.Name = "panel3";
             panel3.Size = new Size(235, 1);
             panel3.TabIndex = 28;
@@ -373,7 +374,7 @@
             // panel4
             // 
             panel4.BackColor = Color.LightGray;
-            panel4.Location = new Point(608, 208);
+            panel4.Location = new Point(608, 192);
             panel4.Name = "panel4";
             panel4.Size = new Size(230, 1);
             panel4.TabIndex = 29;
@@ -547,7 +548,7 @@
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditar.ForeColor = Color.Snow;
-            btnEditar.Location = new Point(864, 160);
+            btnEditar.Location = new Point(864, 144);
             btnEditar.Margin = new Padding(3, 4, 3, 4);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(184, 56);
@@ -556,6 +557,19 @@
             btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
             // 
+            // errorLbl
+            // 
+            errorLbl.AutoSize = true;
+            errorLbl.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            errorLbl.Image = (Image)resources.GetObject("errorLbl.Image");
+            errorLbl.ImageAlign = ContentAlignment.BottomLeft;
+            errorLbl.Location = new Point(72, 208);
+            errorLbl.Name = "errorLbl";
+            errorLbl.Size = new Size(60, 27);
+            errorLbl.TabIndex = 62;
+            errorLbl.Text = "Error";
+            errorLbl.Visible = false;
+            // 
             // FormPerfil
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -563,6 +577,7 @@
             BackColor = Color.LightCyan;
             ClientSize = new Size(1619, 993);
             ContextMenuStrip = contextMenuStrip1;
+            Controls.Add(errorLbl);
             Controls.Add(panel9);
             Controls.Add(panel8);
             Controls.Add(panel7);
@@ -648,5 +663,6 @@
         private Panel panel9;
         private ToolStripMenuItem editarPuestoToolStripMenuItem;
         private Button btnEditar;
+        private Label errorLbl;
     }
 }

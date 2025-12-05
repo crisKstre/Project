@@ -53,6 +53,7 @@
             panel1 = new Panel();
             panel5 = new Panel();
             panel6 = new Panel();
+            errorLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvEventos).BeginInit();
             inv_tl_Bg.SuspendLayout();
             SuspendLayout();
@@ -102,14 +103,14 @@
             FechaFinLbl.Name = "FechaFinLbl";
             FechaFinLbl.Size = new Size(153, 19);
             FechaFinLbl.TabIndex = 6;
-            FechaFinLbl.Text = "Fecha de termino";
+            FechaFinLbl.Text = "Fecha de término";
             // 
             // txtDescripcion
             // 
             txtDescripcion.BackColor = Color.LightCyan;
             txtDescripcion.BorderStyle = BorderStyle.None;
             txtDescripcion.Font = new Font("Century Gothic", 13.2000008F);
-            txtDescripcion.Location = new Point(200, 328);
+            txtDescripcion.Location = new Point(200, 320);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.PlaceholderText = resources.GetString("txtDescripcion.PlaceholderText");
@@ -120,7 +121,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold);
-            label1.Location = new Point(1152, 304);
+            label1.Location = new Point(1152, 296);
             label1.Name = "label1";
             label1.Size = new Size(131, 19);
             label1.TabIndex = 16;
@@ -134,7 +135,7 @@
             comboTipoEvento.FlatStyle = FlatStyle.Flat;
             comboTipoEvento.Font = new Font("Century Gothic", 13.2000008F);
             comboTipoEvento.FormattingEnabled = true;
-            comboTipoEvento.Location = new Point(1152, 336);
+            comboTipoEvento.Location = new Point(1152, 328);
             comboTipoEvento.Name = "comboTipoEvento";
             comboTipoEvento.Size = new Size(248, 33);
             comboTipoEvento.TabIndex = 17;
@@ -186,7 +187,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Century Gothic", 12F, FontStyle.Bold);
             button1.ForeColor = Color.Snow;
-            button1.Location = new Point(1272, 432);
+            button1.Location = new Point(1216, 416);
             button1.Name = "button1";
             button1.Size = new Size(184, 56);
             button1.TabIndex = 30;
@@ -220,7 +221,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Gray;
-            panel2.Location = new Point(200, 168);
+            panel2.Location = new Point(192, 168);
             panel2.Name = "panel2";
             panel2.Size = new Size(253, 1);
             panel2.TabIndex = 45;
@@ -230,7 +231,7 @@
             txtNombre.BackColor = Color.LightCyan;
             txtNombre.BorderStyle = BorderStyle.None;
             txtNombre.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNombre.Location = new Point(208, 136);
+            txtNombre.Location = new Point(200, 136);
             txtNombre.Multiline = true;
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Nombre del evento";
@@ -240,7 +241,7 @@
             // panel3
             // 
             panel3.BackColor = Color.Gray;
-            panel3.Location = new Point(200, 264);
+            panel3.Location = new Point(192, 264);
             panel3.Name = "panel3";
             panel3.Size = new Size(253, 1);
             panel3.TabIndex = 49;
@@ -250,7 +251,7 @@
             txtCupos.BackColor = Color.LightCyan;
             txtCupos.BorderStyle = BorderStyle.None;
             txtCupos.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCupos.Location = new Point(208, 232);
+            txtCupos.Location = new Point(200, 232);
             txtCupos.MaxLength = 4;
             txtCupos.Multiline = true;
             txtCupos.Name = "txtCupos";
@@ -272,7 +273,7 @@
             txtPrecio.BackColor = Color.LightCyan;
             txtPrecio.BorderStyle = BorderStyle.None;
             txtPrecio.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPrecio.Location = new Point(672, 232);
+            txtPrecio.Location = new Point(656, 232);
             txtPrecio.MaxLength = 8;
             txtPrecio.Multiline = true;
             txtPrecio.Name = "txtPrecio";
@@ -289,7 +290,7 @@
             txtLugar.FlatStyle = FlatStyle.Flat;
             txtLugar.Font = new Font("Century Gothic", 13.2000008F);
             txtLugar.FormattingEnabled = true;
-            txtLugar.Location = new Point(648, 136);
+            txtLugar.Location = new Point(656, 136);
             txtLugar.Name = "txtLugar";
             txtLugar.Size = new Size(288, 33);
             txtLugar.TabIndex = 52;
@@ -298,7 +299,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold);
-            label2.Location = new Point(656, 104);
+            label2.Location = new Point(664, 104);
             label2.Name = "label2";
             label2.Size = new Size(53, 19);
             label2.TabIndex = 53;
@@ -307,7 +308,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Gray;
-            panel1.Location = new Point(192, 464);
+            panel1.Location = new Point(192, 448);
             panel1.Name = "panel1";
             panel1.Size = new Size(760, 1);
             panel1.TabIndex = 54;
@@ -315,7 +316,7 @@
             // panel5
             // 
             panel5.BackColor = Color.Gray;
-            panel5.Location = new Point(640, 176);
+            panel5.Location = new Point(648, 176);
             panel5.Name = "panel5";
             panel5.Size = new Size(300, 1);
             panel5.TabIndex = 55;
@@ -323,10 +324,23 @@
             // panel6
             // 
             panel6.BackColor = Color.Gray;
-            panel6.Location = new Point(1152, 376);
+            panel6.Location = new Point(1152, 368);
             panel6.Name = "panel6";
             panel6.Size = new Size(248, 1);
             panel6.TabIndex = 56;
+            // 
+            // errorLbl
+            // 
+            errorLbl.AutoSize = true;
+            errorLbl.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            errorLbl.Image = (Image)resources.GetObject("errorLbl.Image");
+            errorLbl.ImageAlign = ContentAlignment.MiddleLeft;
+            errorLbl.Location = new Point(200, 464);
+            errorLbl.Name = "errorLbl";
+            errorLbl.Size = new Size(60, 27);
+            errorLbl.TabIndex = 62;
+            errorLbl.Text = "Error";
+            errorLbl.Visible = false;
             // 
             // FormEventos
             // 
@@ -334,6 +348,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightCyan;
             ClientSize = new Size(1619, 993);
+            Controls.Add(errorLbl);
             Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel1);
@@ -389,5 +404,6 @@
         private Panel panel1;
         private Panel panel5;
         private Panel panel6;
+        private Label errorLbl;
     }
 }

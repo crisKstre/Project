@@ -41,12 +41,12 @@
             cmbPuestos.Cursor = Cursors.Hand;
             cmbPuestos.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPuestos.FlatStyle = FlatStyle.Flat;
-            cmbPuestos.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbPuestos.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbPuestos.FormattingEnabled = true;
-            cmbPuestos.Location = new Point(40, 96);
+            cmbPuestos.Location = new Point(32, 96);
             cmbPuestos.Name = "cmbPuestos";
             cmbPuestos.RightToLeft = RightToLeft.No;
-            cmbPuestos.Size = new Size(151, 28);
+            cmbPuestos.Size = new Size(151, 29);
             cmbPuestos.TabIndex = 2;
             // 
             // btnAceptar

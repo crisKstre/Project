@@ -45,6 +45,10 @@
             panel1 = new Panel();
             txtNombreAgrupacion = new TextBox();
             btnBuscar = new Button();
+            panel5 = new Panel();
+            label2 = new Label();
+            txtLugar = new ComboBox();
+            errorLbl = new Label();
             postularBg.SuspendLayout();
             inv_tl_Bg.SuspendLayout();
             popmenu1.SuspendLayout();
@@ -55,7 +59,7 @@
             // 
             postularBg.BackColor = Color.MediumTurquoise;
             postularBg.Controls.Add(btnPostular);
-            postularBg.Location = new Point(1328, 120);
+            postularBg.Location = new Point(1344, 112);
             postularBg.Margin = new Padding(3, 4, 3, 4);
             postularBg.Name = "postularBg";
             postularBg.Size = new Size(196, 64);
@@ -148,20 +152,20 @@
             dgvEventos02.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEventos02.EnableHeadersVisualStyles = false;
             dgvEventos02.GridColor = Color.Teal;
-            dgvEventos02.Location = new Point(48, 224);
+            dgvEventos02.Location = new Point(64, 240);
             dgvEventos02.Name = "dgvEventos02";
             dgvEventos02.ReadOnly = true;
             dgvEventos02.RowHeadersVisible = false;
             dgvEventos02.RowHeadersWidth = 51;
             dgvEventos02.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEventos02.Size = new Size(1488, 704);
+            dgvEventos02.Size = new Size(1488, 688);
             dgvEventos02.TabIndex = 41;
             dgvEventos02.RowHeaderMouseClick += Tabla_RowHeaderMouseClick;
             // 
             // panel2
             // 
             panel2.BackColor = Color.DimGray;
-            panel2.Location = new Point(56, 168);
+            panel2.Location = new Point(72, 160);
             panel2.Name = "panel2";
             panel2.Size = new Size(248, 1);
             panel2.TabIndex = 43;
@@ -171,7 +175,7 @@
             txtNombreEvento.BackColor = Color.LightCyan;
             txtNombreEvento.BorderStyle = BorderStyle.None;
             txtNombreEvento.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNombreEvento.Location = new Point(64, 136);
+            txtNombreEvento.Location = new Point(80, 128);
             txtNombreEvento.Multiline = true;
             txtNombreEvento.Name = "txtNombreEvento";
             txtNombreEvento.PlaceholderText = "Nombre del evento";
@@ -181,7 +185,7 @@
             // panel1
             // 
             panel1.BackColor = Color.DimGray;
-            panel1.Location = new Point(352, 168);
+            panel1.Location = new Point(360, 160);
             panel1.Name = "panel1";
             panel1.Size = new Size(256, 1);
             panel1.TabIndex = 45;
@@ -191,7 +195,7 @@
             txtNombreAgrupacion.BackColor = Color.LightCyan;
             txtNombreAgrupacion.BorderStyle = BorderStyle.None;
             txtNombreAgrupacion.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNombreAgrupacion.Location = new Point(360, 136);
+            txtNombreAgrupacion.Location = new Point(368, 128);
             txtNombreAgrupacion.Multiline = true;
             txtNombreAgrupacion.Name = "txtNombreAgrupacion";
             txtNombreAgrupacion.PlaceholderText = "Nombre agrupación";
@@ -206,7 +210,7 @@
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscar.ForeColor = Color.Snow;
-            btnBuscar.Location = new Point(648, 120);
+            btnBuscar.Location = new Point(1008, 112);
             btnBuscar.Margin = new Padding(3, 4, 3, 4);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(196, 64);
@@ -215,6 +219,50 @@
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.Gray;
+            panel5.Location = new Point(664, 168);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(300, 1);
+            panel5.TabIndex = 60;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold);
+            label2.Location = new Point(680, 96);
+            label2.Name = "label2";
+            label2.Size = new Size(53, 19);
+            label2.TabIndex = 59;
+            label2.Text = "Lugar";
+            // 
+            // txtLugar
+            // 
+            txtLugar.BackColor = Color.LightCyan;
+            txtLugar.Cursor = Cursors.Hand;
+            txtLugar.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtLugar.FlatStyle = FlatStyle.Flat;
+            txtLugar.Font = new Font("Century Gothic", 13.2000008F);
+            txtLugar.FormattingEnabled = true;
+            txtLugar.Location = new Point(672, 128);
+            txtLugar.Name = "txtLugar";
+            txtLugar.Size = new Size(288, 33);
+            txtLugar.TabIndex = 58;
+            // 
+            // errorLbl
+            // 
+            errorLbl.AutoSize = true;
+            errorLbl.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            errorLbl.Image = (Image)resources.GetObject("errorLbl.Image");
+            errorLbl.ImageAlign = ContentAlignment.BottomLeft;
+            errorLbl.Location = new Point(72, 184);
+            errorLbl.Name = "errorLbl";
+            errorLbl.Size = new Size(60, 27);
+            errorLbl.TabIndex = 61;
+            errorLbl.Text = "Error";
+            errorLbl.Visible = false;
+            // 
             // FormHijo2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -222,6 +270,10 @@
             BackColor = Color.LightCyan;
             ClientSize = new Size(1619, 993);
             ContextMenuStrip = popmenu1;
+            Controls.Add(errorLbl);
+            Controls.Add(panel5);
+            Controls.Add(label2);
+            Controls.Add(txtLugar);
             Controls.Add(btnBuscar);
             Controls.Add(panel1);
             Controls.Add(txtNombreAgrupacion);
@@ -259,5 +311,9 @@
         private Panel panel1;
         private TextBox txtNombreAgrupacion;
         private Button btnBuscar;
+        private Panel panel5;
+        private Label label2;
+        private ComboBox txtLugar;
+        private Label errorLbl;
     }
 }

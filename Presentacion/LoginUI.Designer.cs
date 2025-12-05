@@ -163,7 +163,6 @@
             txtPass.BorderStyle = BorderStyle.None;
             txtPass.Font = new Font("Century Gothic", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPass.Location = new Point(96, 216);
-            txtPass.Multiline = true;
             txtPass.Name = "txtPass";
             txtPass.PlaceholderText = "Contraseña";
             txtPass.Size = new Size(391, 27);

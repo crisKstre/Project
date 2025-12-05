@@ -38,7 +38,6 @@
             label2 = new Label();
             dgvMisEventos = new DataGridView();
             contextMenuStrip2 = new ContextMenuStrip(components);
-            editarEventoToolStripMenuItem = new ToolStripMenuItem();
             eliminarEventoToolStripMenuItem = new ToolStripMenuItem();
             reiniciarTablaToolStripMenuItem = new ToolStripMenuItem();
             dgvPostulaciones = new DataGridView();
@@ -87,7 +86,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold);
-            label2.Location = new Point(64, 464);
+            label2.Location = new Point(64, 576);
             label2.Name = "label2";
             label2.Size = new Size(144, 27);
             label2.TabIndex = 26;
@@ -107,7 +106,7 @@
             dgvMisEventos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.Teal;
-            dataGridViewCellStyle1.Font = new Font("Century Gothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.Snow;
             dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
             dataGridViewCellStyle1.SelectionForeColor = Color.Snow;
@@ -126,28 +125,21 @@
             dgvMisEventos.DefaultCellStyle = dataGridViewCellStyle2;
             dgvMisEventos.EnableHeadersVisualStyles = false;
             dgvMisEventos.GridColor = Color.CadetBlue;
-            dgvMisEventos.Location = new Point(56, 496);
+            dgvMisEventos.Location = new Point(56, 608);
             dgvMisEventos.Name = "dgvMisEventos";
             dgvMisEventos.ReadOnly = true;
             dgvMisEventos.RowHeadersVisible = false;
             dgvMisEventos.RowHeadersWidth = 51;
             dgvMisEventos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMisEventos.Size = new Size(920, 440);
+            dgvMisEventos.Size = new Size(920, 328);
             dgvMisEventos.TabIndex = 27;
             // 
             // contextMenuStrip2
             // 
             contextMenuStrip2.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { editarEventoToolStripMenuItem, eliminarEventoToolStripMenuItem, reiniciarTablaToolStripMenuItem });
+            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { eliminarEventoToolStripMenuItem, reiniciarTablaToolStripMenuItem });
             contextMenuStrip2.Name = "contextMenuStrip2";
-            contextMenuStrip2.Size = new Size(191, 76);
-            // 
-            // editarEventoToolStripMenuItem
-            // 
-            editarEventoToolStripMenuItem.Name = "editarEventoToolStripMenuItem";
-            editarEventoToolStripMenuItem.Size = new Size(190, 24);
-            editarEventoToolStripMenuItem.Text = "Editar evento";
-            editarEventoToolStripMenuItem.Click += editarEventoToolStripMenuItem_Click;
+            contextMenuStrip2.Size = new Size(191, 52);
             // 
             // eliminarEventoToolStripMenuItem
             // 
@@ -203,7 +195,7 @@
             dgvPostulaciones.RowHeadersVisible = false;
             dgvPostulaciones.RowHeadersWidth = 51;
             dgvPostulaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPostulaciones.Size = new Size(920, 280);
+            dgvPostulaciones.Size = new Size(920, 400);
             dgvPostulaciones.TabIndex = 28;
             dgvPostulaciones.CellContentClick += dgvPostulaciones_CellContentClick_1;
             // 
@@ -475,6 +467,5 @@
         private Panel panel1;
         private Label label4;
         private Label lblTotalPostulaciones;
-        private ToolStripMenuItem editarEventoToolStripMenuItem;
     }
 }
